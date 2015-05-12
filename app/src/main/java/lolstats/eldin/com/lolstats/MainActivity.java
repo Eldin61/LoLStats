@@ -2,11 +2,19 @@ package lolstats.eldin.com.lolstats;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    public void onRadioClicked(View w){
+        //niks nog
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
