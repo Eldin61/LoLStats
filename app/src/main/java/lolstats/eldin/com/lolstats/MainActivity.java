@@ -1,6 +1,9 @@
 package lolstats.eldin.com.lolstats;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +22,11 @@ import com.robrua.orianna.type.core.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
 import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -45,11 +53,26 @@ public class MainActivity extends ActionBarActivity {
         getLevel(s);
     }
 
-    private void getLevel(final String name){
+    protected void runTest(){
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("Wrong username or region!");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton("Ok",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            final AlertDialog alert11 = builder1.create();
+            alert11.show();
+    }
+
+    private void getLevel(final String name) {
         AsyncRiotAPI.getSummonerByName(new Action<Summoner>() {
             @Override
             public void handle(APIException e) {
-                Log.d("Error", "Couldnt find the summoner" + name);
+                Log.d("handle", "");
             }
 
             @Override
@@ -58,6 +81,7 @@ public class MainActivity extends ActionBarActivity {
                 returnLevel(summoner.getLevel() + "");
                 getId = summoner.getID();
                 setNewActivity();
+                Log.d("perform", "");
             }
         }, name);
     }
