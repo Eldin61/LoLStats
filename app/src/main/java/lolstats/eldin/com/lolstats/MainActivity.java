@@ -3,6 +3,7 @@ package lolstats.eldin.com.lolstats;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.robrua.orianna.api.core.AsyncRiotAPI;
 import com.robrua.orianna.type.api.Action;
@@ -20,6 +22,8 @@ import com.robrua.orianna.type.core.staticdata.Champion;
 import com.robrua.orianna.type.core.stats.ChampionStats;
 import com.robrua.orianna.type.core.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
+
+import org.w3c.dom.Text;
 
 import java.util.Map;
 import java.util.concurrent.Executors;
@@ -42,7 +46,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void login(View w){
-        getName();
+        //getName();
+        EditText etName = (EditText) findViewById(R.id.etName);
+        s = etName.getText().toString();
+        loginTask l = new loginTask();
+        l.getName(s);
+        testMethod();
+    }
+    public void testMethod(){
+        new loginTask().execute();
     }
 
     public void getName(){
@@ -67,7 +79,6 @@ public class MainActivity extends ActionBarActivity {
             final AlertDialog alert11 = builder1.create();
             alert11.show();
     }
-
     private void getLevel(final String name) {
         AsyncRiotAPI.getSummonerByName(new Action<Summoner>() {
             @Override
@@ -93,6 +104,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setNewActivity(){
+        Log.d("new act", "check");
         Intent intent = new Intent(this, OverviewPage.class);
         intent.putExtra("name", s);
         intent.putExtra("level", level);
