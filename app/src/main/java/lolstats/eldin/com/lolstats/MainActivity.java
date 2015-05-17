@@ -1,5 +1,6 @@
 package lolstats.eldin.com.lolstats;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.robrua.orianna.api.core.AsyncRiotAPI;
+import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.api.Action;
 import com.robrua.orianna.type.core.common.Region;
 import com.robrua.orianna.type.core.staticdata.Champion;
@@ -49,52 +51,12 @@ public class MainActivity extends ActionBarActivity {
         //getName();
         EditText etName = (EditText) findViewById(R.id.etName);
         s = etName.getText().toString();
-        loginTask l = new loginTask();
+        loginTask l = new loginTask(MainActivity.this);
         l.getName(s);
         testMethod();
     }
     public void testMethod(){
-        new loginTask().execute();
-    }
-
-    public void getName(){
-        Connect c = new Connect();
-        c.connectRiot();
-        EditText etName = (EditText) findViewById(R.id.etName);
-        s = etName.getText().toString();
-        getLevel(s);
-    }
-
-    protected void runTest(){
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage("Wrong username or region!");
-            builder1.setCancelable(true);
-            builder1.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            final AlertDialog alert11 = builder1.create();
-            alert11.show();
-    }
-    private void getLevel(final String name) {
-        AsyncRiotAPI.getSummonerByName(new Action<Summoner>() {
-            @Override
-            public void handle(APIException e) {
-                Log.d("handle", "");
-            }
-
-            @Override
-            public void perform(Summoner summoner) {
-                Log.d("log", "Succesfully found summoner" + name);
-                returnLevel(summoner.getLevel() + "");
-                getId = summoner.getID();
-                setNewActivity();
-                Log.d("perform", "");
-            }
-        }, name);
+        new loginTask(MainActivity.this).execute();
     }
 
     private String returnLevel(String levelReturn){
@@ -103,13 +65,13 @@ public class MainActivity extends ActionBarActivity {
         return level;
     }
 
-    private void setNewActivity(){
-        Log.d("new act", "check");
-        Intent intent = new Intent(this, OverviewPage.class);
-        intent.putExtra("name", s);
-        intent.putExtra("level", level);
-        Log.d("intent", level);
-        startActivity(intent);
+    public void setNewActivity(){
+            Log.d("new act", "check");
+            Intent intent = new Intent(this, OverviewPage.class);
+            intent.putExtra("name", s);
+            intent.putExtra("level", level);
+            //Log.d("intent", level);
+            startActivity(intent);
     }
 
     @Override
