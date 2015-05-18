@@ -2,25 +2,15 @@ package lolstats.eldin.com.lolstats;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.core.common.Region;
-import com.robrua.orianna.type.core.game.Player;
-import com.robrua.orianna.type.core.staticdata.Champion;
-import com.robrua.orianna.type.core.stats.AggregatedStats;
-import com.robrua.orianna.type.core.stats.ChampionStats;
-import com.robrua.orianna.type.core.stats.PlayerStatsSummaryType;
 import com.robrua.orianna.type.core.summoner.Summoner;
-import com.robrua.orianna.type.dto.stats.RankedStats;
 import com.robrua.orianna.type.exception.APIException;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 
 /**
  * Created by Eldin on 17-5-2015.
@@ -35,6 +25,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     String assists;
     String deaths;
     String division;
+    ProgressDialog p;
 
     Activity mActivity;
 
@@ -44,7 +35,6 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
 
     public String getName(String input){
         sName = input;
-        Log.d("getname", sName);
         return sName;
     }
 
@@ -52,8 +42,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPreExecute(){
-        // Log.d("pre",sName);
-        Log.d("pre", sName);
+        p = ProgressDialog.show(mActivity, "Loading", "Retrieving and calculating data..", true);
     }
 
     @Override
@@ -63,30 +52,43 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             RiotAPI.setRegion(Region.EUW);
             RiotAPI.setAPIKey("42a21243-f875-49fb-93bb-e112cd9df88a");
 
-            Log.d("back", " ");
             Summoner summoner = RiotAPI.getSummonerByName(sName);
-            Log.d("back", summoner.getName() + "-" + summoner.getLevel());
             userName = summoner.getName();
             userLevel = summoner.getLevel() + "";
-            wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
+
+            try {
+                RiotAPI.setMirror(Region.EUW);
+                RiotAPI.setRegion(Region.EUW);
+                RiotAPI.setAPIKey("42a21243-f875-49fb-93bb-e112cd9df88a");
+                wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
                 losses = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalLosses() + "";
                 kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
                 assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
                 deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
-            division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
-
+                division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
+            } catch (APIException e){
+                wins = 0 + "";
+                losses = 0 + "";
+                kills = 0 + "";
+                assists = 0 + "";
+                deaths = 0 + "";
+                division = "No ranked games available..";
+            }
             //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
             //Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
 
             sFound = true;
+
         } catch (APIException e){
             sFound = false;
         }
+
         return null;
     }
 
     @Override
     protected void onPostExecute(Void unused){
+        p.dismiss();
         if (sFound){
             super.onPostExecute(unused);
             Intent intent = new Intent(mActivity, OverviewPage.class);
