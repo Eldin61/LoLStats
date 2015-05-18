@@ -34,6 +34,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     String kills;
     String assists;
     String deaths;
+    String division;
 
     Activity mActivity;
 
@@ -72,8 +73,9 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
                 assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
                 deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
+            division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
 
-            Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + "");
+            //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
             //Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
 
             sFound = true;
@@ -95,6 +97,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             intent.putExtra("kills", kills);
             intent.putExtra("assists", assists);
             intent.putExtra("deaths", deaths);
+            intent.putExtra("division", division);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mActivity.startActivity(intent);
         } else {

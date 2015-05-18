@@ -26,6 +26,7 @@ public class OverviewPage extends ActionBarActivity {
         String kills = "";
         String assists = "";
         String deaths = "";
+        String division = "";
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             message = extras.getString("name");
@@ -35,6 +36,7 @@ public class OverviewPage extends ActionBarActivity {
             kills = extras.getString("kills");
             assists = extras.getString("assists");
             deaths = extras.getString("deaths");
+            division = extras.getString("division");
         }
 
         TextView tv = (TextView) findViewById(R.id.test);
@@ -57,5 +59,8 @@ public class OverviewPage extends ActionBarActivity {
 
         TextView tvDeaths = (TextView) findViewById(R.id.deaths);
         tvDeaths.setText("Deaths: " + deaths);
+
+        TextView tvDivision = (TextView) findViewById(R.id.division);
+        tvDivision.setText(division);
     }
 }
