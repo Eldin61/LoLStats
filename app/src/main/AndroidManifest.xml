@@ -25,6 +25,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lolstats.eldin.com.lolstats.MainActivity" />
         </activity>
+        <activity
+            android:name=".currentMatchPage"
+            android:label="Current match"
+            android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lolstats.eldin.com.lolstats.OverviewPage" />
+        </activity><activity
+        android:name=".detailedRankedPage"
+        android:label="Ranked stats"
+        android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="lolstats.eldin.com.lolstats.OverviewPage" />
+    </activity>
+
     </application>
 
 </manifest>

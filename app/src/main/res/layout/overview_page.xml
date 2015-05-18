@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10sp"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context=".OverviewPage">
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,6 +90,30 @@
             android:layout_alignStart="@+id/losses"
             android:layout_marginTop="10sp"
             android:textSize="15sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/live"
+            android:id="@+id/liveMatch"
+            android:layout_below="@+id/kills"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp"
+            android:background="@color/darkYellow"
+            android:textColor="@color/white"
+            android:onClick="btnCurr"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ranked"
+            android:id="@+id/button"
+            android:layout_below="@+id/liveMatch"
+            android:layout_centerHorizontal="true"
+            android:background="@color/lightBlue"
+            android:textColor="@color/white"
+            android:layout_marginTop="15sp"
+            android:onClick="btnRanked"/>
 
     </RelativeLayout>
 </LinearLayout>

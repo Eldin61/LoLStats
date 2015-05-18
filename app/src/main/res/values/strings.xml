@@ -5,4 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="username">LoL username:</string>
     <string name="region">Choose a region:</string>
+    <string name="live">See current match info</string>
+    <string name="ranked">See detailed ranked stats</string>
 </resources>

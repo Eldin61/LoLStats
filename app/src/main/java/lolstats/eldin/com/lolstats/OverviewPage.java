@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -13,6 +14,23 @@ import org.w3c.dom.Text;
  */
 public class OverviewPage extends ActionBarActivity {
     String sLevel;
+
+    public void btnCurr(View w){
+        startSeq();
+    }
+
+    public void btnRanked(View w){
+        startRanked();
+    }
+
+    private void startRanked(){
+        new detailedRank(OverviewPage.this).execute();
+    }
+
+    private void startSeq(){
+        new currentMatch(OverviewPage.this).execute();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
