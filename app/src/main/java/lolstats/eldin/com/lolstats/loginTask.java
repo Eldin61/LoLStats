@@ -6,9 +6,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.core.common.Region;
+import com.robrua.orianna.type.core.stats.PlayerStatsSummaryType;
 import com.robrua.orianna.type.core.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
@@ -50,7 +52,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
         try {
             RiotAPI.setMirror(Region.EUW);
             RiotAPI.setRegion(Region.EUW);
-            RiotAPI.setAPIKey("42a21243-f875-49fb-93bb-e112cd9df88a");
+            RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             Summoner summoner = RiotAPI.getSummonerByName(sName);
             userName = summoner.getName();
@@ -59,7 +61,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             try {
                 RiotAPI.setMirror(Region.EUW);
                 RiotAPI.setRegion(Region.EUW);
-                RiotAPI.setAPIKey("42a21243-f875-49fb-93bb-e112cd9df88a");
+                RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
                 wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
                 losses = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalLosses() + "";
                 kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
@@ -71,11 +73,11 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 losses = 0 + "";
                 kills = 0 + "";
                 assists = 0 + "";
-                deaths = 0 + "";
+            deaths = 0 + "";
                 division = "No ranked games available..";
             }
-            //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
-            //Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
+            Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
+            Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
 
             sFound = true;
 
