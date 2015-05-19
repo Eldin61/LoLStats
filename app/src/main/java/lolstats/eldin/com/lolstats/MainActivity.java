@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
     public void onRadioClicked(View w){
         //niks nog
     }
-
+//nick stinkt en moeder
     public void login(View w){
         //getName();
         EditText etName = (EditText) findViewById(R.id.etName);
