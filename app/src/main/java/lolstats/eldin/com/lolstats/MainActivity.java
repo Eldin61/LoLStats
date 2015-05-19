@@ -44,11 +44,7 @@ public class MainActivity extends ActionBarActivity {
     public final static String sLevel = "lolstatseldin.com.lolstats.MESSAGELevel";
 
     public void onRadioClicked(View w){
-        //niks nog je stinkt
-    }
-
-    private void niks(){
-
+        //niks nog
     }
 
     public void login(View w){
