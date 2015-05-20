@@ -78,7 +78,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 }
             //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
            // Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
-
+            Log.d("","");
             sFound = true;
 
         } catch (APIException e){
