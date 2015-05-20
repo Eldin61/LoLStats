@@ -9,7 +9,8 @@
         android:src="@drawable/lolback"
         android:scaleType="centerCrop">
     </ImageView>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -35,7 +36,6 @@
             android:background="@color/white"
             android:padding="10sp"
             android:singleLine="true"
-            android:textColor="@color/light_font"
             android:layout_below="@+id/welcome"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"

@@ -76,8 +76,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                     deaths = 0 + "";
                     division = "No ranked games available..";
                 }
-            //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
-           // Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
+
             Log.d("","");
             sFound = true;
 
