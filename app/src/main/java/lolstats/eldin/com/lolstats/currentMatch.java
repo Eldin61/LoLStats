@@ -69,7 +69,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             currentGame = ("\n" + "Blue team:" + "\n" + Summoner1 + "\n" + Summoner2 + "\n" + Summoner3 + "\n" + Summoner4 + "\n" + Summoner5 + "\n" + "Red team:" + "\n" + Summoner6 + "\n" + Summoner7 + "\n" + Summoner8 + "\n" + Summoner9 + "\n" + Summoner10);
 
             sFound = true;
-        } catch (APIException e)
+        } catch (NullPointerException e)
         {
             sFound = false;
         }

@@ -58,26 +58,26 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             userName = summoner.getName();
             userLevel = summoner.getLevel() + "";
 
-            try {
-                RiotAPI.setMirror(Region.EUW);
-                RiotAPI.setRegion(Region.EUW);
-                RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
-                wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
-                losses = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalLosses() + "";
-                kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
-                assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
-                deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
-                division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
-            } catch (APIException e){
-                wins = 0 + "";
-                losses = 0 + "";
-                kills = 0 + "";
-                assists = 0 + "";
-            deaths = 0 + "";
-                division = "No ranked games available..";
-            }
-            Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
-            Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
+                try {
+                    RiotAPI.setMirror(Region.EUW);
+                    RiotAPI.setRegion(Region.EUW);
+                    RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+                    wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
+                    losses = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalLosses() + "";
+                    kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
+                    assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
+                    deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
+                    division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
+                } catch (APIException e){
+                    wins = 0 + "";
+                    losses = 0 + "";
+                    kills = 0 + "";
+                    assists = 0 + "";
+                    deaths = 0 + "";
+                    division = "No ranked games available..";
+                }
+            //Log.d("ranked", summoner.getLeagueEntries().get(0).getTier() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision());
+           // Log.d("stats", summoner.getStats().get(PlayerStatsSummaryType.RankedSolo5x5).getAggregatedStats().getTotalKills() + "");
 
             sFound = true;
 

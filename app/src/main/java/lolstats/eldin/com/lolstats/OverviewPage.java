@@ -27,7 +27,14 @@ public class OverviewPage extends ActionBarActivity {
         new detailedRank(OverviewPage.this).execute();
     }
 
+    private void setName(){
+        TextView tvS = (TextView) findViewById(R.id.test);
+        currentMatch c = new currentMatch(OverviewPage.this);
+        c.sName = tvS.getText() + "";
+    }
+
     private void startSeq(){
+        setName();
         new currentMatch(OverviewPage.this).execute();
     }
 
