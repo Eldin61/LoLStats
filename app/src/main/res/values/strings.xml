@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">LoLStats</string>
 
-    <string name="welcome">Welcome to LoLStats!</string>
+    <string name="welcome">Welcome</string>
     <string name="action_settings">Settings</string>
     <string name="username">LoL username:</string>
     <string name="region">Choose a region:</string>
     <string name="live">See current match info</string>
     <string name="ranked">See detailed ranked stats</string>
+    <string name="sName">Enter summoner name...</string>
 </resources>
