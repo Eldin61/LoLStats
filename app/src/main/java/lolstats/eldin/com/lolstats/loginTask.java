@@ -67,7 +67,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                     kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
                     assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
                     deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
-                    division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision();
+                    division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
                 } catch (APIException e){
                     wins = 0 + "";
                     losses = 0 + "";

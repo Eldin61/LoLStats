@@ -24,6 +24,9 @@ public class OverviewPage extends ActionBarActivity {
     }
 
     private void startRanked(){
+        TextView tvS = (TextView) findViewById(R.id.test);
+        detailedRank d = new detailedRank(OverviewPage.this);
+        d.sName = tvS.getText() + "";
         new detailedRank(OverviewPage.this).execute();
     }
 

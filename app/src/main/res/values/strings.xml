@@ -8,4 +8,10 @@
     <string name="live">See current match info</string>
     <string name="ranked">See detailed ranked stats</string>
     <string name="sName">Enter summoner name...</string>
+    <string name="solo">Solo/Duo</string>
+    <string name="max">Maximum</string>
+    <string name="total">Total</string>
+    <string name="avg">Average</string>
+    <string name="KDA">Kills / Deaths / Assists</string>
+    <string name="prev">wins / losses / total</string>
 </resources>
