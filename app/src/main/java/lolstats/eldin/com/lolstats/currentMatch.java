@@ -21,6 +21,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     static String sName;
     String userName;
     String currentGame;
+//    String Summoner1Name;
+//    String Summoner2Name;
     public boolean sFound;
 
     ProgressDialog p;
@@ -49,24 +51,24 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             RiotAPI.setRegion(Region.EUW);
             RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
             Summoner summoner = RiotAPI.getSummonerByName(sName);
-            String Player = summoner.getCurrentGame().toString();
+            String Player = summoner.getCurrentGame().getParticipants().toString();
             userName = summoner.getName();
 
             Player = Player.replaceAll("Participant", "").replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("CurrentGameInfo", "");
 
-            String[] parts = Player.split(",");
-            String Summoner1 = parts[0];
-            String Summoner2 = parts[1];
-            String Summoner3 = parts[2];
-            String Summoner4 = parts[3];
-            String Summoner5 = parts[4];
-            String Summoner6 = parts[5];
-            String Summoner7 = parts[6];
-            String Summoner8 = parts[7];
-            String Summoner9 = parts[8];
-            String Summoner10 = parts[9];
+            String[] parts = Player.split(", ");
+            String Summoner1 = parts[0].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner2 = parts[1].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner3 = parts[2].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner4 = parts[3].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner5 = parts[4].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner6 = parts[5].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner7 = parts[6].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner8 = parts[7].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner9 = parts[8].replaceAll("^\\s+", "").replaceAll(" .*", "");
+            String Summoner10 = parts[9].replaceAll("^\\s+", "").replaceAll(" .*", "");
 
-            currentGame = ("\n" + "Blue team:" + "\n" + Summoner1 + "\n" + Summoner2 + "\n" + Summoner3 + "\n" + Summoner4 + "\n" + Summoner5 + "\n" + "Red team:" + "\n" + Summoner6 + "\n" + Summoner7 + "\n" + Summoner8 + "\n" + Summoner9 + "\n" + Summoner10);
+            currentGame = ("\n"+ Summoner1 + "\n" + Summoner2 + "\n" + Summoner3 + "\n" + Summoner4 + "\n" + Summoner5 + "\n" + Summoner6 + "\n" + Summoner7 + "\n" + Summoner8 + "\n" + Summoner9 + "\n" + Summoner10);
 
             sFound = true;
         } catch (NullPointerException e)

@@ -26,6 +26,6 @@ public class currentMatchPage extends ActionBarActivity {
         tvUserName.setText(userName);
 
         TextView tvCurrentGame = (TextView) findViewById(R.id.CurrentGame);
-        tvCurrentGame.setText("Level: " + currentGame);
+        tvCurrentGame.setText(currentGame);
     }
 }
