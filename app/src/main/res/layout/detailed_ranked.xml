@@ -1,115 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:padding="10dp"
-    android:background="@color/white"
-    android:weightSum="1">
+    android:background="@color/tealLight">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/border">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="division"
-            android:id="@+id/divisionDet"
+            android:text="@string/rankeds"
+            android:gravity="center_horizontal"
             android:textSize="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp" />
+            android:textStyle="bold"
+            android:textColor="@color/text_shadow_white"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/solo"
-            android:textColor="@color/indigo"
-            android:id="@+id/solo"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/teal600">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="games"
-            android:id="@+id/games"
-            android:textSize="15dp"
-            android:layout_below="@+id/divisionDet"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totalGames"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
 
-        <TextView
-            android:layout_marginTop="8dp"
-            android:textSize="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/prev"
-            android:id="@+id/prev"
-            android:layout_below="@+id/divisionDet"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/border"
-        android:layout_weight="0.35">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="xx"
+                    android:id="@+id/totalGames"
+                    android:gravity="end"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/total"
-            android:textColor="@color/indigo"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/KDA"
-            android:id="@+id/KDA"
-            android:textSize="20dp"
-            android:layout_below="@+id/textView"
-            android:layout_centerHorizontal="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gamesWon"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="stats"
-            android:id="@+id/tvKDA"
-            android:textSize="15dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="18dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="xx"
+                    android:id="@+id/gamesWon"
+                    android:gravity="end"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/border"></RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/border"></RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/border"></RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/border"></RelativeLayout>
-</LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gamesLost"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="xx"
+                    android:id="@+id/gamesLost"
+                    android:gravity="end"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

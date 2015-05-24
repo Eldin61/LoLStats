@@ -10,7 +10,6 @@ import android.util.Log;
 
 import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.core.common.Region;
-import com.robrua.orianna.type.core.stats.PlayerStatsSummaryType;
 import com.robrua.orianna.type.core.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
