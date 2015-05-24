@@ -1,19 +1,14 @@
 package lolstats.eldin.com.lolstats;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by Eldin on 12-5-2015.
  */
 public class OverviewPage extends ActionBarActivity {
-    String sLevel;
 
     public void btnCurr(View w){
         startSeq();

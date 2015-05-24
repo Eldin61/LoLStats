@@ -14,4 +14,25 @@
     <string name="avg">Average</string>
     <string name="KDA">Kills / Deaths / Assists</string>
     <string name="prev">wins / losses / total</string>
+
+    <!-- ranked statistics page -->
+    <string name="rankeds">Ranked statistics</string>
+    <string name="totalGames">Total games played:</string>
+    <string name="gamesLost">Games lost:</string>
+    <string name="gamesWon">Games won:</string>
+
+    <string name="earnings">Earnings</string>
+    <string name="totalGold">Total gold earned:</string>
+    <string name="minionsKilled">Total minions killed:</string>
+    <string name="neutralMinions">Total neutral minions killed:</string>
+
+    <string name="combat">Combat stats</string>
+    <string name="kills">Kills:</string>
+    <string name="deaths">Deaths:</string>
+    <string name="assists">Assists:</string>
+    <string name="penta">Penta kills:</string>
+    <string name="quadra">Quadra kills:</string>
+    <string name="triple">Triple kills:</string>
+    <string name="doubleK">Double kills:</string>1
+    <!-- end of ranked statistics page -->
 </resources>
