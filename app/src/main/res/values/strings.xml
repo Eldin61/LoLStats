@@ -27,7 +27,7 @@
     <string name="neutralMinions">Total neutral minions killed:</string>
 
     <string name="combat">Combat stats</string>
-    <string name="kills">Kills:</string>
+    <string name="kills">Player kills:</string>
     <string name="deaths">Deaths:</string>
     <string name="assists">Assists:</string>
     <string name="penta">Penta kills:</string>

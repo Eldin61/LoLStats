@@ -23,13 +23,21 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
     ProgressDialog p;
     Boolean found;
 
-    String division;
-    String total;
-    String totalKDA;
-    int iKills;
-    int iAssists;
-    int iDeaths;
+    String totalGames;
+    String gameWon;
+    String gameLost;
 
+    String totalGold;
+    String totalMinions;
+    String totalNeutral;
+
+    String pKills;
+    String assists;
+    String deaths;
+    String penta;
+    String quadra;
+    String triple;
+    String doubleK;
 
     public detailedRank(Activity a){
         o = a;
@@ -48,22 +56,22 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
             RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             Summoner summoner = RiotAPI.getSummonerByName(sName);
-            division =  summoner.getLeagueEntries().get(0).getTier() + " " +
-                        summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + " LP";
-            int iWins = summoner.getLeagueEntries().get(0).getParticipantEntry().getWins();
-            int iLosses = summoner.getLeagueEntries().get(0).getParticipantEntry().getLosses();
-            String wins = iWins + "";
-            String losses = iLosses + "";
-            int iTotal = iWins + iLosses;
 
-            total =  wins + " / " + losses + " / " + iTotal;
+            gameWon = summoner.getRankedStats().get(null).getStats().getTotalWins() + "";
+            gameLost = summoner.getRankedStats().get(null).getStats().getTotalLosses() + "";
+            totalGames = summoner.getRankedStats().get(null).getStats().getTotalGamesPlayed() + "";
 
-            iKills = summoner.getRankedStats().get(null).getStats().getTotalKills();
-            iAssists = summoner.getRankedStats().get(null).getStats().getTotalAssists();
-            iDeaths = summoner.getRankedStats().get(null).getStats().getTotalDeaths();
+            totalGold = summoner.getRankedStats().get(null).getStats().getTotalGoldEarned() + "";
+            totalMinions = summoner.getRankedStats().get(null).getStats().getTotalMinionKills() + "";
+            totalNeutral = summoner.getRankedStats().get(null).getStats().getTotalNeutralMinionsKilled() + "";
 
-            totalKDA = iKills + " / " + iAssists + " / " + iDeaths;
-
+            pKills = summoner.getRankedStats().get(null).getStats().getTotalKills() + "";
+            assists = summoner.getRankedStats().get(null).getStats().getTotalAssists() + "";
+            deaths = summoner.getRankedStats().get(null).getStats().getTotalDeaths() + "";
+            penta = summoner.getRankedStats().get(null).getStats().getTotalPentaKills() + "";
+            quadra = summoner.getRankedStats().get(null).getStats().getTotalQuadraKills() + "";
+            triple = summoner.getRankedStats().get(null).getStats().getTotalTripleKills() + "";
+            doubleK = summoner.getRankedStats().get(null).getStats().getTotalDoubleKills() + "";
 
             found = true;
         } catch (APIException e){
@@ -78,9 +86,19 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
         if (found) {
             super.onPostExecute(unused);
             Intent intent = new Intent(o, detailedRankedPage.class);
-            intent.putExtra("division", division);
-            intent.putExtra("games", total);
-            intent.putExtra("KDA", totalKDA);
+            intent.putExtra("totalGames", totalGames);
+            intent.putExtra("won", gameWon);
+            intent.putExtra("lost", gameLost);
+            intent.putExtra("gold", totalGold);
+            intent.putExtra("minions", totalMinions);
+            intent.putExtra("neutral", totalNeutral);
+            intent.putExtra("kills", pKills);
+            intent.putExtra("assists", assists);
+            intent.putExtra("deaths", deaths);
+            intent.putExtra("penta", penta);
+            intent.putExtra("quadra", quadra);
+            intent.putExtra("triple", triple);
+            intent.putExtra("double", doubleK);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             o.startActivity(intent);
         } else {

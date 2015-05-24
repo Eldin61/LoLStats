@@ -12,8 +12,8 @@
     <color name="text_shadow">#7F000000</color>
     <color name="text_shadow_white">#FFFFFF</color>
     <color name="lightindigo">#5C6BC0</color>
-    <color name="tealDark">#1A237E</color>
-    <color name="tealLight">#3F51B5</color>
-    <color name="teal600">#5C6BC0</color>
-    <color name="gold">#FFAB00</color>
+    <color name="tealDark">#00295E</color>
+    <color name="tealLight">#3865A1</color>
+    <color name="teal600">#5887C4</color>
+    <color name="gold">#AD9532</color>
 </resources>
