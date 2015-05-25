@@ -43,47 +43,44 @@ public class OverviewPage extends ActionBarActivity {
 
 
         String message = "";
-        String level = "";
-        String wins = "";
-        String losses = "";
-        String kills = "";
-        String assists = "";
-        String deaths = "";
-        String division = "";
+        String soloDiv = "";
+        String teamDiv = "";
+        String threeDiv = "";
+        String soloWin = "";
+        String teamWin = "";
+        String threeWin = "";
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             message = extras.getString("name");
-            level = extras.getString("level");
-            wins = extras.getString("wins");
-            losses = extras.getString("losses");
-            kills = extras.getString("kills");
-            assists = extras.getString("assists");
-            deaths = extras.getString("deaths");
-            division = extras.getString("division");
+            soloDiv = extras.getString("soloDiv");
+            teamDiv = extras.getString("teamDiv");
+            threeDiv = extras.getString("threeDiv");
+
+            soloWin = extras.getString("soloWin");
+            teamWin = extras.getString("teamWin");
+            threeWin = extras.getString("threeWin");
         }
 
         TextView tv = (TextView) findViewById(R.id.test);
         tv.setText(message);
 
-        TextView tvLevel = (TextView) findViewById(R.id.level);
-        tvLevel.setText("Level: " + level);
+        TextView tvSolo = (TextView) findViewById(R.id.solodiv);
+        tvSolo.setText(soloDiv);
 
-        TextView tvWins = (TextView) findViewById(R.id.wins);
-        tvWins.setText("Wins: " + wins);
+        TextView tvTeam = (TextView) findViewById(R.id.teamdiv);
+        tvTeam.setText(teamDiv);
 
-        TextView tvLosses = (TextView) findViewById(R.id.losses);
-        tvLosses.setText("Losses: " + losses);
+        TextView tvThree = (TextView) findViewById(R.id.threediv);
+        tvThree.setText(threeDiv);
 
-        TextView tvKills = (TextView) findViewById(R.id.kills);
-        tvKills.setText("Kills: " + kills);
+        TextView tvSoloWins = (TextView) findViewById(R.id.solowin);
+        tvSoloWins.setText(soloWin);
 
-        TextView tvAssists = (TextView) findViewById(R.id.assists);
-        tvAssists.setText("Assists: " + assists);
+        TextView tvTeamWins = (TextView) findViewById(R.id.teamwin);
+        tvTeamWins.setText(teamWin);
 
-        TextView tvDeaths = (TextView) findViewById(R.id.deaths);
-        tvDeaths.setText("Deaths: " + deaths);
+        TextView tvThreeWins = (TextView) findViewById(R.id.threewin);
+        tvThreeWins.setText(threeWin);
 
-        TextView tvDivision = (TextView) findViewById(R.id.division);
-        tvDivision.setText(division);
     }
 }

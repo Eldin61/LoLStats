@@ -20,12 +20,12 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     static String sName;
     String userName;
     String userLevel;
-    String wins;
-    String losses;
-    String kills;
-    String assists;
-    String deaths;
-    String division;
+    String divisionSolo;
+    String divisionTeam;
+    String divisionThree;
+    String soloWins;
+    String teamWins;
+    String threeWins;
     ProgressDialog p;
 
     Activity mActivity;
@@ -55,25 +55,27 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
 
             Summoner summoner = RiotAPI.getSummonerByName(sName);
             userName = summoner.getName();
-            userLevel = summoner.getLevel() + "";
 
                 try {
-                    RiotAPI.setMirror(Region.EUW);
-                    RiotAPI.setRegion(Region.EUW);
-                    RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
-                    wins = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalWins() + "";
-                    losses = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalLosses() + "";
-                    kills = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalKills() + "";
-                    assists = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalAssists() + "";
-                    deaths = RiotAPI.getRankedStats(summoner).get(null).getStats().getTotalDeaths() + "";
-                    division = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
-                } catch (APIException e){
-                    wins = 0 + "";
-                    losses = 0 + "";
-                    kills = 0 + "";
-                    assists = 0 + "";
-                    deaths = 0 + "";
-                    division = "No ranked games available..";
+                    divisionSolo = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
+                    soloWins = "Wins: " + summoner.getLeagueEntries().get(0).getParticipantEntry().getWins() + "";
+                } catch (IndexOutOfBoundsException e){
+                    divisionSolo = "No ranked games available..";
+                    soloWins ="Wins: " +  "0";
+                }
+                try{
+                    divisionTeam = summoner.getLeagueEntries().get(1).getTier() + " " + summoner.getLeagueEntries().get(1).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(1).getParticipantEntry().getLeaguePoints() + "LP";
+                    teamWins ="Wins: " +  summoner.getLeagueEntries().get(1).getParticipantEntry().getWins() + "";
+                } catch (IndexOutOfBoundsException e){
+                    divisionTeam = "No ranked games available..";
+                    teamWins ="Wins: " +  "0";
+                }
+                try{
+                    divisionThree = summoner.getLeagueEntries().get(2).getTier() + " " + summoner.getLeagueEntries().get(2).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(2).getParticipantEntry().getLeaguePoints() + "LP";
+                    threeWins ="Wins: " +  summoner.getLeagueEntries().get(2).getParticipantEntry().getWins() + "";
+                } catch (IndexOutOfBoundsException e){
+                    divisionThree = "No ranked games available..";
+                    threeWins ="Wins: " +  "0";
                 }
 
             Log.d("","");
@@ -93,13 +95,13 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             super.onPostExecute(unused);
             Intent intent = new Intent(mActivity, OverviewPage.class);
             intent.putExtra("name", userName);
-            intent.putExtra("level", userLevel);
-            intent.putExtra("wins", wins);
-            intent.putExtra("losses", losses);
-            intent.putExtra("kills", kills);
-            intent.putExtra("assists", assists);
-            intent.putExtra("deaths", deaths);
-            intent.putExtra("division", division);
+            intent.putExtra("soloDiv", divisionSolo);
+            intent.putExtra("teamDiv", divisionTeam);
+            intent.putExtra("threeDiv", divisionThree);
+
+            intent.putExtra("soloWin", soloWins);
+            intent.putExtra("teamWin", teamWins);
+            intent.putExtra("threeWin", threeWins);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mActivity.startActivity(intent);
         } else {

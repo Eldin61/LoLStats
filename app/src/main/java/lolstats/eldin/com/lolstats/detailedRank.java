@@ -57,9 +57,16 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
 
             Summoner summoner = RiotAPI.getSummonerByName(sName);
 
-            gameWon = summoner.getRankedStats().get(null).getStats().getTotalWins() + "";
-            gameLost = summoner.getRankedStats().get(null).getStats().getTotalLosses() + "";
-            totalGames = summoner.getRankedStats().get(null).getStats().getTotalGamesPlayed() + "";
+            int won;
+            int lost;
+            int total;
+
+            won = summoner.getRankedStats().get(null).getStats().getTotalWins();
+            lost = summoner.getRankedStats().get(null).getStats().getTotalLosses();
+            total = won + lost;
+            gameWon = won + "";
+            gameLost = lost + "";
+            totalGames = total + "";
 
             totalGold = summoner.getRankedStats().get(null).getStats().getTotalGoldEarned() + "";
             totalMinions = summoner.getRankedStats().get(null).getStats().getTotalMinionKills() + "";

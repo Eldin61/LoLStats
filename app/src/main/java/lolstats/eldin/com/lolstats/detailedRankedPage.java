@@ -33,7 +33,7 @@ public class detailedRankedPage extends ActionBarActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
-            tvGames.setText(extras.getString("totalgames"));
+            tvGames.setText(extras.getString("totalGames"));
             tvWon.setText(extras.getString("won"));
             tvLost.setText(extras.getString("lost"));
 
