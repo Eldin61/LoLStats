@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
     public void login(View w){
         EditText etName = (EditText) findViewById(R.id.etName);
         s = etName.getText().toString();
+        savePref();
         loginTask l = new loginTask(MainActivity.this);
         l.getName(s);
         testMethod();
@@ -58,8 +59,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textv = (TextView) findViewById(R.id.welcome);
-        textv.setShadowLayer(1, 0, 0, Color.BLACK);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
@@ -100,18 +99,34 @@ public class MainActivity extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        String getName = settings.getString("summoner", null);
-
-        if(getName != null){
-            Log.d("restored", getName);
-        } else{
-            Log.d("got", "nothing");
-        }
 
     }
 
     public static final String PREFS_NAME = "MyPrefsFile";
+    private static int value = 0;
+
+    public void savePref(){
+        TextView tvS = (TextView) findViewById(R.id.etName);
+        String test = tvS.getText() + "";
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+            editor.putString("summoner" + value, test);
+        Log.d("saved", "summoner " + test);
+        value++;
+
+        // Commit the edits!
+        editor.apply();
+
+        //SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String name;
+        for(int i = 0; i < 10; i++){
+            name = settings.getString("summoner" + i, null);
+            if(name != null) {
+                Log.d("saved names", name);
+            }
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,16 +155,6 @@ public class MainActivity extends ActionBarActivity {
 
         // We need an Editor object to make preference changes.
         // All objects are from android.context.Context
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        if(settings.getString("summoner", null) != null) {
 
-        } else {
-            editor.putString("summoner", s);
-            Log.d("saved", "summoner " + s);
-        }
-
-        // Commit the edits!
-        editor.commit();
     }
 }
