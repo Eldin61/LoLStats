@@ -6,10 +6,13 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.core.common.Region;
+import com.robrua.orianna.type.core.currentgame.Participant;
 import com.robrua.orianna.type.core.summoner.Summoner;
+import com.robrua.orianna.type.dto.game.Player;
 
 /**
  * Created by Eldin on 18-5-2015.
@@ -71,9 +74,11 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             Summoner summoner = RiotAPI.getSummonerByName(sName);
             String Player = summoner.getCurrentGame().getParticipants().toString();
             userName = summoner.getName();
+            getChampion(summoner);
 
             Player = Player.replaceAll("Participant", "").replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("CurrentGameInfo", "");
             String[] parts = Player.split(", ");
+
 
             Summoner1 = parts[0].replaceAll("^\\s+", "").replaceAll(" as .*", "");
             Summoner2 = parts[1].replaceAll("^\\s+", "").replaceAll(" as .*", "");
@@ -176,6 +181,31 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     }
     public Summoner setSummoner(String input){
         return RiotAPI.getSummonerByName(input);
+    }
+
+    public String getChampion(Summoner input){
+        try{
+            for (int i = 0; i < 10; i++){
+                String s = input.getCurrentGame().getParticipants().get(i).getSummonerName();
+                String c = input.getCurrentGame().getParticipants().get(i).getChampion() + "";
+                Participant p = input.getCurrentGame().getParticipants().get(i);
+                String d = p.getSummoner().getLeagueEntries().get(0).getTier() + p.getSummoner().getLeagueEntries().get(0).getParticipantEntry().getDivision();
+                String moeder = s + c + d;
+                if(s.contains(input + "") && i < 5){
+                    Log.d("myblue", moeder);
+                } else if (i <= 5){
+                    Log.d("blue", moeder);
+                }
+                if(s.contains(input + "") && i >= 5){
+                    Log.d("mypurple", moeder);
+                } else if (i > 5) {
+                    Log.d("purple", moeder);
+                }
+            }
+            return "";
+        } catch (Exception e){
+            return "shizzles";
+        }
     }
 
     public String getDivision(Summoner input) {
