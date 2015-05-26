@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import com.robrua.orianna.api.core.RiotAPI;
 import com.robrua.orianna.type.core.common.Region;
 import com.robrua.orianna.type.core.summoner.Summoner;
+import com.robrua.orianna.type.dto.game.Player;
 
 /**
  * Created by Eldin on 18-5-2015.
@@ -74,6 +75,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             Player = Player.replaceAll("Participant", "").replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("CurrentGameInfo", "");
             String[] parts = Player.split(", ");
+
 
             Summoner1 = parts[0].replaceAll("^\\s+", "").replaceAll(" as .*", "");
             Summoner2 = parts[1].replaceAll("^\\s+", "").replaceAll(" as .*", "");
@@ -177,6 +179,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     public Summoner setSummoner(String input){
         return RiotAPI.getSummonerByName(input);
     }
+
 
     public String getDivision(Summoner input) {
         try {
