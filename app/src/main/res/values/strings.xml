@@ -35,4 +35,8 @@
     <string name="triple">Triple kills:</string>
     <string name="doubleK">Double kills:</string>1
     <!-- end of ranked statistics page -->
+
+    <string name="title">LoLStats</string>
+    <string name="openDrawer">Open Drawer</string>
+    <string name="closeDrawer">Close Drawer</string>
 </resources>
