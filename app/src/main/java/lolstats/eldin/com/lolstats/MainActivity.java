@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,6 +24,7 @@ public class MainActivity extends ActionBarActivity {
     public void testMethod(){
         new loginTask(MainActivity.this).execute();
     }
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         TextView textv = (TextView) findViewById(R.id.welcome);
         textv.setShadowLayer(1, 0, 0, Color.BLACK);
+
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
     }
 
     @Override

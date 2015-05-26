@@ -62,21 +62,33 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 } catch (IndexOutOfBoundsException e){
                     divisionSolo = "No ranked games available..";
                     soloWins ="Wins: " +  "0";
+                } catch (APIException e){
+                    divisionSolo = "No ranked games available..";
+                    soloWins ="Wins: " +  "0";
                 }
+
                 try{
                     divisionTeam = summoner.getLeagueEntries().get(1).getTier() + " " + summoner.getLeagueEntries().get(1).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(1).getParticipantEntry().getLeaguePoints() + "LP";
                     teamWins ="Wins: " +  summoner.getLeagueEntries().get(1).getParticipantEntry().getWins() + "";
                 } catch (IndexOutOfBoundsException e){
                     divisionTeam = "No ranked games available..";
                     teamWins ="Wins: " +  "0";
+                } catch (APIException e){
+                    divisionSolo = "No ranked games available..";
+                    soloWins ="Wins: " +  "0";
                 }
+
                 try{
                     divisionThree = summoner.getLeagueEntries().get(2).getTier() + " " + summoner.getLeagueEntries().get(2).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(2).getParticipantEntry().getLeaguePoints() + "LP";
                     threeWins ="Wins: " +  summoner.getLeagueEntries().get(2).getParticipantEntry().getWins() + "";
                 } catch (IndexOutOfBoundsException e){
                     divisionThree = "No ranked games available..";
                     threeWins ="Wins: " +  "0";
+                } catch (APIException e){
+                    divisionSolo = "No ranked games available..";
+                    soloWins ="Wins: " +  "0";
                 }
+
 
             Log.d("","");
             sFound = true;

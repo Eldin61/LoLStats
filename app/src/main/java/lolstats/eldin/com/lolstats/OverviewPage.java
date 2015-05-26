@@ -2,6 +2,7 @@ package lolstats.eldin.com.lolstats;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -36,10 +37,14 @@ public class OverviewPage extends ActionBarActivity {
         new currentMatch(OverviewPage.this).execute();
     }
 
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.overview_page);
+
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
 
 
         String message = "";

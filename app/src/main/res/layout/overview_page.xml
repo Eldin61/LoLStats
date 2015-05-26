@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    tools:context=".OverviewPage">
+    tools:context=".OverviewPage"
+    android:background="@color/grey_font">
     <LinearLayout
-        android:padding="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+    <LinearLayout
+        android:padding="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +31,9 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:background="@color/tealLight">
+            android:background="@color/white"
+            android:elevation="5dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -28,7 +42,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="name"
-                    android:textColor="@color/white"
                     android:id="@+id/test"
                     android:textSize="20sp"
                     android:gravity="center_horizontal"/>
@@ -40,7 +53,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:background="@color/tealLight">
+            android:background="@color/white"
+            android:elevation="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +63,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/solo"
                     android:text="Solo/Duo"
@@ -57,7 +70,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/solodiv"
                     android:text="Division"
@@ -65,7 +77,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/solowin"
                     android:text="wins"
@@ -78,7 +89,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:background="@color/tealLight">
+            android:background="@color/white"
+            android:elevation="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +99,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/team"
                     android:text="Team 3v3"
@@ -95,7 +106,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/teamdiv"
                     android:text="Division"
@@ -103,7 +113,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/teamwin"
                     android:text="wins"
@@ -116,7 +125,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:layout_marginTop="5dp"
-            android:background="@color/tealLight">
+            android:background="@color/white"
+            android:elevation="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,7 +135,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/three"
                     android:text="Team 5v5"
@@ -133,7 +142,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/threediv"
                     android:text="Division"
@@ -141,7 +149,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:id="@+id/threewin"
                     android:text="wins"
@@ -162,6 +169,8 @@
             android:text="Detailed ranked"/>
 
     </LinearLayout>
+    </LinearLayout>
 
 
 </ScrollView>
+  </LinearLayout>

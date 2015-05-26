@@ -2,6 +2,7 @@ package lolstats.eldin.com.lolstats;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -10,10 +11,14 @@ import org.w3c.dom.Text;
  * Created by Eldin on 18-5-2015.
  */
 public class detailedRankedPage extends ActionBarActivity {
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailed_ranked);
+
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
 
         TextView tvGames = (TextView) findViewById(R.id.totalGames);
         TextView tvWon = (TextView) findViewById(R.id.gamesWon);

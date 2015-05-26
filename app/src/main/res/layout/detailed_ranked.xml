@@ -10,6 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
+        android:focusableInTouchMode="true">
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            ></include>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
         android:padding="5dp"
         android:focusableInTouchMode="true">
         <RelativeLayout
@@ -379,5 +389,6 @@
         android:textColor="@color/white"/>
             </LinearLayout>
         </RelativeLayout>
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -2,16 +2,21 @@ package lolstats.eldin.com.lolstats;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 /**
  * Created by Eldin on 18-5-2015.
  */
 public class currentMatchPage extends ActionBarActivity {
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.currentmatch);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+
 
         String userName = "";
         String currentGame = "";
