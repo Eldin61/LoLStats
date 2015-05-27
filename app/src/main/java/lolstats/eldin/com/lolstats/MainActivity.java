@@ -99,7 +99,30 @@ public class MainActivity extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 
+        View pref = findViewById(R.id.pref1);
 
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String name;
+        for(int i = 0; i < 10; i++){
+            name = settings.getString("summoner" + i, null);
+            if(name != null) {
+                pref.setVisibility(View.VISIBLE);
+                TextView t = (TextView) findViewById(R.id.prefName);
+                Log.d("tag", name);
+                t.setText(name);
+                break;
+            } else {
+                pref.setVisibility(View.GONE);
+                Log.d("nothing", "hide");
+            }
+        }
+
+    }
+
+    public void deletePref(View w){
+        getSharedPreferences(PREFS_NAME, 0).edit().clear().commit();
+        View pref = findViewById(R.id.pref1);
+        pref.setVisibility(View.GONE);
     }
 
     public static final String PREFS_NAME = "MyPrefsFile";
@@ -118,14 +141,7 @@ public class MainActivity extends ActionBarActivity {
         // Commit the edits!
         editor.apply();
 
-        //SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        String name;
-        for(int i = 0; i < 10; i++){
-            name = settings.getString("summoner" + i, null);
-            if(name != null) {
-                Log.d("saved names", name);
-            }
-        }
+
     }
 
     @Override

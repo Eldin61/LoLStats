@@ -8,10 +8,21 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.robrua.orianna.api.core.RiotAPI;
+
+import com.robrua.orianna.api.dto.BaseRiotAPI;
 import com.robrua.orianna.type.core.common.Region;
-import com.robrua.orianna.type.core.summoner.Summoner;
+import com.robrua.orianna.type.dto.champion.Champion;
+import com.robrua.orianna.type.dto.league.League;
+import com.robrua.orianna.type.dto.league.LeagueEntry;
+import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
+
+import junit.framework.Assert;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 
 /**
  * Created by Eldin on 17-5-2015.
@@ -49,55 +60,35 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            RiotAPI.setMirror(Region.EUW);
-            RiotAPI.setRegion(Region.EUW);
-            RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+            BaseRiotAPI.setMirror(Region.EUW);
+            BaseRiotAPI.setRegion(Region.EUW);
+            BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+            //RiotAPI.setLoadPolicy(LoadPolicy.LAZY);
+            Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
+            Summoner summoner = summoners.get(sName);
 
-            Summoner summoner = RiotAPI.getSummonerByName(sName);
             userName = summoner.getName();
 
-                try {
-                    divisionSolo = summoner.getLeagueEntries().get(0).getTier() + " " + summoner.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
-                    soloWins = "Wins: " + summoner.getLeagueEntries().get(0).getParticipantEntry().getWins() + "";
-                } catch (IndexOutOfBoundsException e){
-                    divisionSolo = "No ranked games available..";
-                    soloWins ="Wins: " +  "0";
-                } catch (APIException e){
-                    divisionSolo = "No ranked games available..";
-                    soloWins ="Wins: " +  "0";
-                }
 
-                try{
-                    divisionTeam = summoner.getLeagueEntries().get(1).getTier() + " " + summoner.getLeagueEntries().get(1).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(1).getParticipantEntry().getLeaguePoints() + "LP";
-                    teamWins ="Wins: " +  summoner.getLeagueEntries().get(1).getParticipantEntry().getWins() + "";
-                } catch (IndexOutOfBoundsException e){
-                    divisionTeam = "No ranked games available..";
-                    teamWins ="Wins: " +  "0";
-                } catch (APIException e){
-                    divisionSolo = "No ranked games available..";
-                    soloWins ="Wins: " +  "0";
-                }
+            long sd = summoner.getId();
+            Map<Long, List<League>> league = BaseRiotAPI.getSummonerLeagueEntries(sd);
 
-                try{
-                    divisionThree = summoner.getLeagueEntries().get(2).getTier() + " " + summoner.getLeagueEntries().get(2).getParticipantEntry().getDivision() + " - " + summoner.getLeagueEntries().get(2).getParticipantEntry().getLeaguePoints() + "LP";
-                    threeWins ="Wins: " +  summoner.getLeagueEntries().get(2).getParticipantEntry().getWins() + "";
-                } catch (IndexOutOfBoundsException e){
-                    divisionThree = "No ranked games available..";
-                    threeWins ="Wins: " +  "0";
-                } catch (APIException e){
-                    divisionSolo = "No ranked games available..";
-                    soloWins ="Wins: " +  "0";
-                }
+            divisionSolo = league.get(sd).get(0).getTier() + " " + league.get(sd).get(0).getEntries().get(0).getDivision();
+            divisionThree = league.get(sd).get(1).getTier() + " " + league.get(sd).get(1).getEntries().get(0).getDivision();
+            divisionTeam = league.get(sd).get(2).getTier() + " " + league.get(sd).get(2).getEntries().get(0).getDivision();
+
+            String g = league.get(sd).get(0).getEntries().get(0).getWins() + "";
+
+            Log.d("test", g);
 
 
-            Log.d("","");
             sFound = true;
 
         } catch (APIException e){
             sFound = false;
         }
 
-        return null;
+             return null;
     }
 
     @Override
@@ -131,4 +122,9 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             alert11.show();
         }
     }
-}
+    /**
+    private void backup(){
+
+    }*/
+
+        }

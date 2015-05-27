@@ -25,5 +25,4 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.0.0'
-    compile files('libs/orianna-android-2.2.7.jar')
 }
