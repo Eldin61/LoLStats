@@ -63,24 +63,49 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             BaseRiotAPI.setMirror(Region.EUW);
             BaseRiotAPI.setRegion(Region.EUW);
             BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
-            //RiotAPI.setLoadPolicy(LoadPolicy.LAZY);
-            Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
-            Summoner summoner = summoners.get(sName);
 
+            Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
+            String sumName = sName.replaceAll("\\s+", "");
+            Summoner summoner = summoners.get(sumName);
+            Log.d("name", sName);
+            Log.d("name2", summoner + "");
+            Log.d("name3", summoners + "");
             userName = summoner.getName();
 
 
             long sd = summoner.getId();
-            Map<Long, List<League>> league = BaseRiotAPI.getSummonerLeagueEntries(sd);
+            try {
+                Map<Long, List<League>> league = BaseRiotAPI.getSummonerLeagueEntries(sd);
 
-            divisionSolo = league.get(sd).get(0).getTier() + " " + league.get(sd).get(0).getEntries().get(0).getDivision();
-            divisionThree = league.get(sd).get(1).getTier() + " " + league.get(sd).get(1).getEntries().get(0).getDivision();
-            divisionTeam = league.get(sd).get(2).getTier() + " " + league.get(sd).get(2).getEntries().get(0).getDivision();
+                try {
+                    divisionSolo = league.get(sd).get(0).getTier() + " " + league.get(sd).get(0).getEntries().get(0).getDivision() + " " +
+                            league.get(sd).get(0).getEntries().get(0).getLeaguePoints() + " LP";
+                    soloWins = "Wins: " + league.get(sd).get(0).getEntries().get(0).getWins() + "";
+                } catch (APIException e){
+                    divisionSolo = "Unranked";
+                }
 
-            String g = league.get(sd).get(0).getEntries().get(0).getWins() + "";
+                try {
+                    divisionTeam = league.get(sd).get(1).getTier() + " " + league.get(sd).get(1).getEntries().get(0).getDivision() + " " +
+                            league.get(sd).get(1).getEntries().get(0).getLeaguePoints() + " LP";
+                    teamWins = "Wins: " + league.get(sd).get(1).getEntries().get(0).getWins() + "";
+                } catch (IndexOutOfBoundsException e){
+                    divisionTeam = "Unranked";
+                }
 
-            Log.d("test", g);
+                try {
+                    divisionThree = league.get(sd).get(2).getTier() + " " + league.get(sd).get(2).getEntries().get(0).getDivision() + " " +
+                            league.get(sd).get(2).getEntries().get(0).getLeaguePoints() + " LP";
+                    threeWins = "Wins: " + league.get(sd).get(2).getEntries().get(0).getWins() + "";
+                } catch (IndexOutOfBoundsException e){
+                    divisionThree = "Unranked";
+                }
 
+            } catch (APIException e){
+                divisionSolo = "unranked";
+                divisionTeam = "Unranked";
+                divisionThree = "Unranked";
+            }
 
             sFound = true;
 
