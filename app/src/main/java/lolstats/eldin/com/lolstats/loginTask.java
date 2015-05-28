@@ -65,7 +65,8 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
-            String sumName = sName.replaceAll("\\s+", "");
+            String lCase = sName.toLowerCase();
+            String sumName = lCase.replaceAll("\\s+", "");
             Summoner summoner = summoners.get(sumName);
             Log.d("name", sName);
             Log.d("name2", summoner + "");

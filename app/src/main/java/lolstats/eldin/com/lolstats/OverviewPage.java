@@ -19,18 +19,10 @@ import android.widget.Toast;
  */
 public class OverviewPage extends ActionBarActivity {
 
-    public void btnCurr(View w){
-        startSeq();
-    }
-
-    public void btnRanked(View w){
-        startRanked();
-    }
-
     private void startRanked(){
         TextView tvS = (TextView) findViewById(R.id.test);
         detailedRank d = new detailedRank(OverviewPage.this);
-        d.sName = tvS.getText() + "";
+        d.setName(tvS.getText().toString());
         new detailedRank(OverviewPage.this).execute();
     }
 
