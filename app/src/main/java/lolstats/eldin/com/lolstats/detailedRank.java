@@ -13,6 +13,7 @@ import com.robrua.orianna.type.core.common.Region;
 import com.robrua.orianna.type.dto.stats.ChampionStats;
 import com.robrua.orianna.type.dto.stats.RankedStats;
 import com.robrua.orianna.type.dto.summoner.Summoner;
+import com.robrua.orianna.type.exception.APIException;
 
 import java.util.List;
 import java.util.Map;
@@ -60,79 +61,48 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
 
     @Override
     protected Void doInBackground(Void... params) {
-        /**try {
-            RiotAPI.setMirror(Region.EUW);
-            RiotAPI.setRegion(Region.EUW);
-            RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+        try {
+            BaseRiotAPI.setRegion(Region.EUW);
+            BaseRiotAPI.setMirror(Region.EUW);
+            BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
-            Summoner summoner = RiotAPI.getSummonerByName(sName);
+            Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
+            String lCase = sName.toLowerCase();
+            String sumName = lCase.replaceAll("\\s+", "");
 
-            int won;
-            int lost;
-            int total;
+            Summoner summoner = summoners.get(sumName);
 
-            won = summoner.getRankedStats().get(null).getStats().getTotalWins();
-            lost = summoner.getRankedStats().get(null).getStats().getTotalLosses();
-            total = won + lost;
-            gameWon = won + "";
-            gameLost = lost + "";
-            totalGames = total + "";
+            userName = summoners.get(sumName).getName();
 
-            totalGold = summoner.getRankedStats().get(null).getStats().getTotalGoldEarned() + "";
-            totalMinions = summoner.getRankedStats().get(null).getStats().getTotalMinionKills() + "";
-            totalNeutral = summoner.getRankedStats().get(null).getStats().getTotalNeutralMinionsKilled() + "";
 
-            pKills = summoner.getRankedStats().get(null).getStats().getTotalKills() + "";
-            assists = summoner.getRankedStats().get(null).getStats().getTotalAssists() + "";
-            deaths = summoner.getRankedStats().get(null).getStats().getTotalDeaths() + "";
-            penta = summoner.getRankedStats().get(null).getStats().getTotalPentaKills() + "";
-            quadra = summoner.getRankedStats().get(null).getStats().getTotalQuadraKills() + "";
-            triple = summoner.getRankedStats().get(null).getStats().getTotalTripleKills() + "";
-            doubleK = summoner.getRankedStats().get(null).getStats().getTotalDoubleKills() + "";
+            long sd = summoner.getId();
+
+            List<ChampionStats> r = BaseRiotAPI.getRankedStats(sd).getChampions();
+
+            for (int i = 0; i < r.size(); i++) {
+                ChampionStats c = r.get(i);
+                if (c.getId() == 0) {
+                    totalGames = c.getStats().getTotalSessionsPlayed() + "";
+                    gameWon = c.getStats().getTotalSessionsWon() + "";
+                    gameLost = c.getStats().getTotalSessionsLost() + "";
+                    totalGold = c.getStats().getTotalGoldEarned() + "";
+                    totalMinions = c.getStats().getTotalMinionKills() + "";
+                    totalNeutral = c.getStats().getTotalNeutralMinionsKilled() + "";
+                    pKills = c.getStats().getTotalChampionKills() + "";
+                    assists = c.getStats().getTotalAssists() + "";
+                    deaths = c.getStats().getTotalDeathsPerSession() + "";
+                    penta = c.getStats().getTotalPentaKills() + "";
+                    quadra = c.getStats().getTotalQuadraKills() + "";
+                    triple = c.getStats().getTotalTripleKills() + "";
+                    doubleK = c.getStats().getTotalDoubleKills() + "";
+                }
+            }
+
 
             found = true;
-        } catch (APIException e){
+        }catch (APIException e){
             found = false;
-        }*/
-        BaseRiotAPI.setRegion(Region.EUW);
-        BaseRiotAPI.setMirror(Region.EUW);
-        BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
-
-        Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
-        String lCase = sName.toLowerCase();
-        String sumName = lCase.replaceAll("\\s+", "");
-
-        Summoner summoner = summoners.get(sumName);
-
-        userName = summoners.get(sumName).getName();
-
-
-
-        long sd = summoner.getId();
-
-        List<ChampionStats> r =  BaseRiotAPI.getRankedStats(sd).getChampions();
-
-        for (int i = 0; i < r.size(); i++){
-            ChampionStats c = r.get(i);
-            if(c.getId() == 0){
-                totalGames = c.getStats().getTotalSessionsPlayed() + "";
-                gameWon = c.getStats().getTotalSessionsWon() + "";
-                gameLost = c.getStats().getTotalSessionsLost() + "";
-                totalGold = c.getStats().getTotalGoldEarned() + "";
-                totalMinions = c.getStats().getTotalMinionKills() + "";
-                totalNeutral = c.getStats().getTotalNeutralMinionsKilled() + "";
-                pKills = c.getStats().getTotalChampionKills() + "";
-                assists = c.getStats().getTotalAssists() + "";
-                deaths = c.getStats().getTotalDeathsPerSession() + "";
-                penta = c.getStats().getTotalPentaKills() + "";
-                quadra = c.getStats().getTotalQuadraKills() + "";
-                triple = c.getStats().getTotalTripleKills() + "";
-                doubleK = c.getStats().getTotalDoubleKills() + "";
-            }
         }
-
-
-        found = true;
         return null;
     }
 

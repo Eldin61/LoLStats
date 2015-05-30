@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -85,6 +86,63 @@ public class OverviewPage extends ActionBarActivity {
             teamWin = extras.getString("teamWin");
             threeWin = extras.getString("threeWin");
         }
+        ImageView v = (ImageView) findViewById(R.id.div1);
+
+        if(soloDiv.contains("BRONZE")){
+            v.setImageResource(R.drawable.bronze);
+        } else if (soloDiv.contains("SILVER")){
+            v.setImageResource(R.drawable.silver);
+        } else if (soloDiv.contains("GOLD")){
+            v.setImageResource(R.drawable.gold);
+        } else if (soloDiv.contains("PLATINUM")){
+            v.setImageResource(R.drawable.platinum);
+        } else if (soloDiv.contains("DIAMOND")){
+            v.setImageResource(R.drawable.diamond);
+        } else if (soloDiv.contains("MASTER")){
+            v.setImageResource(R.drawable.master);
+        } else if (soloDiv.contains("CHALLENGER")){
+            v.setImageResource(R.drawable.challenger);
+        }
+
+        ImageView v2 = (ImageView) findViewById(R.id.div2);
+
+        if(teamDiv.contains("BRONZE")){
+            v2.setImageResource(R.drawable.bronze);
+        } else if (teamDiv.contains("SILVER")){
+            v2.setImageResource(R.drawable.silver);
+        } else if (teamDiv.contains("GOLD")){
+            v2.setImageResource(R.drawable.gold);
+        } else if (teamDiv.contains("PLATINUM")){
+            v2.setImageResource(R.drawable.platinum);
+        } else if (teamDiv.contains("DIAMOND")){
+            v2.setImageResource(R.drawable.diamond);
+        } else if (teamDiv.contains("MASTER")){
+            v2.setImageResource(R.drawable.master);
+        } else if (teamDiv.contains("CHALLENGER")){
+            v2.setImageResource(R.drawable.challenger);
+        }
+
+        ImageView v3 = (ImageView) findViewById(R.id.div3);
+
+        if(threeDiv.contains("BRONZE")){
+            v3.setImageResource(R.drawable.bronze);
+        } else if (threeDiv.contains("SILVER")){
+            v3.setImageResource(R.drawable.silver);
+        } else if (threeDiv.contains("GOLD")){
+            v3.setImageResource(R.drawable.gold);
+        } else if (threeDiv.contains("PLATINUM")){
+            v3.setImageResource(R.drawable.platinum);
+        } else if (threeDiv.contains("DIAMOND")){
+            v3.setImageResource(R.drawable.diamond);
+        } else if (threeDiv.contains("MASTER")){
+            v3.setImageResource(R.drawable.master);
+        } else if (threeDiv.contains("CHALLENGER")){
+            v3.setImageResource(R.drawable.challenger);
+        }
+
+
+        ImageView c1 = (ImageView) findViewById(R.id.img1);
+        c1.setImageResource(R.drawable.amumu);
 
         TextView tv = (TextView) findViewById(R.id.test);
         tv.setText(message);

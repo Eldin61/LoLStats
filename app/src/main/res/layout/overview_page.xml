@@ -79,6 +79,14 @@
                     android:id="@+id/solo"
                     android:text="Solo/Duo"
                     />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/div1"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="center"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,6 +123,12 @@
                     android:id="@+id/team"
                     android:text="Team 3v3"
                     />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/div2"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="center"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -144,6 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,6 +166,14 @@
                     android:id="@+id/three"
                     android:text="Team 5v5"
                     />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/div3"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="center"/>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,6 +190,35 @@
                     android:gravity="center_horizontal"/>
             </LinearLayout>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:elevation="3dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img1"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img2"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img3"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img4"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/img5"/>
+            </RelativeLayout>
 
     </LinearLayout>
     </LinearLayout>
