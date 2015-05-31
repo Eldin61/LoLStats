@@ -172,7 +172,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             List<com.robrua.orianna.type.dto.staticdata.Mastery> masteryArray = new ArrayList<>(masteryList.getData().values());
 
             // hier zoekt die alle participants op van de current game en stopt ze in een lijst
-            List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
+                List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
 
             // hier word het wat lastiger
             // deze loop gaat door de list heen van alle participants, elke participant pakt die dus de naam, id en masteries
@@ -233,6 +233,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             sFound = true;
         }catch (APIException e){
+            sFound = false;
+        } catch (NullPointerException e){
             sFound = false;
         }
         return null;
