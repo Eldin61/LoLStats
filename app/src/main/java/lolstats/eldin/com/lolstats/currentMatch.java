@@ -8,11 +8,23 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+
 import com.robrua.orianna.api.core.RiotAPI;
+import com.robrua.orianna.api.dto.BaseRiotAPI;
 import com.robrua.orianna.type.core.common.Region;
-import com.robrua.orianna.type.core.currentgame.Participant;
-import com.robrua.orianna.type.core.summoner.Summoner;
-import com.robrua.orianna.type.dto.game.Player;
+import com.robrua.orianna.type.dto.currentgame.Mastery;
+import com.robrua.orianna.type.dto.currentgame.Participant;
+import com.robrua.orianna.type.dto.currentgame.Rune;
+import com.robrua.orianna.type.dto.league.League;
+import com.robrua.orianna.type.dto.staticdata.BasicDataStats;
+import com.robrua.orianna.type.dto.staticdata.MasteryList;
+import com.robrua.orianna.type.dto.staticdata.RuneList;
+import com.robrua.orianna.type.dto.summoner.Summoner;
+import com.robrua.orianna.type.exception.APIException;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Eldin on 18-5-2015.
@@ -67,7 +79,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
     @Override
     protected Void doInBackground(Void... params) {
-        try {
+        /**try {
             RiotAPI.setMirror(Region.EUW);
             RiotAPI.setRegion(Region.EUW);
             RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
@@ -126,6 +138,102 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
         } catch (NullPointerException e)
         {
             sFound = false;
+        }*/
+        try {
+
+            BaseRiotAPI.setMirror(Region.EUW);
+            BaseRiotAPI.setRegion(Region.EUW);
+            BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+
+
+            // Zoekt de summoner op stopt hem in een map
+            Map<String, com.robrua.orianna.type.dto.summoner.Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
+            // zorgt ervoor dat de key lowercase is en geen spaties meer bevat
+            String lCase = sName.toLowerCase();
+            String sumName = lCase.replaceAll("\\s+", "");
+
+            // hier haalt die hem eruit met de key
+            com.robrua.orianna.type.dto.summoner.Summoner summoner = summoners.get(sumName);
+
+            // pakt de summoner id en naam
+            userName = summoner.getName();
+            long sd = summoner.getId();
+
+            // doet de server request naar riot en haalt alle static data op van runes.
+            RuneList runes = BaseRiotAPI.getRunes();
+
+            // stopt de runes in een lijst
+            List<com.robrua.orianna.type.dto.staticdata.Rune> runess = new ArrayList<>(runes.getData().values());
+
+            // server call riot, static data masteries
+            MasteryList masteryList = BaseRiotAPI.getMasteries();
+
+            // list mastery enzo
+            List<com.robrua.orianna.type.dto.staticdata.Mastery> masteryArray = new ArrayList<>(masteryList.getData().values());
+
+            // hier zoekt die alle participants op van de current game en stopt ze in een lijst
+            List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
+
+            // hier word het wat lastiger
+            // deze loop gaat door de list heen van alle participants, elke participant pakt die dus de naam, id en masteries
+            for (int i = 0; i < p.size(); i++) {
+                String pName = p.get(i).getSummonerName();
+                long team = p.get(i).getTeamId();
+                long pId = p.get(i).getSummonerId();
+
+                //lijst met current game masteries
+                List<Mastery> g = p.get(i).getMasteries();
+
+                // deze loop gaat door de list heen van current game masteries en pakt de mastery id's
+                for (int z = 0; z < g.size(); z++) {
+                    long mId = g.get(z).getMasteryId();
+                    long masteryId;
+
+                    // deze loop gaat door de static masteries heen en pakt de id's ervan
+                    for (int mI = 0; mI < masteryArray.size(); mI++) {
+                        masteryId = masteryArray.get(mI).getId();
+
+                        // als allebei de masteries met elkaar overheenkomen print die dus de naam, rank en mastery tree uit
+                        if (mId == masteryId) {
+                            com.robrua.orianna.type.dto.staticdata.Mastery staticMa = masteryArray.get(mI);
+                            Log.d("Mastery", staticMa.getName() + " Rank: " + g.get(z).getRank() + " Tree: " + staticMa.getMasteryTree());
+                        }
+                    }
+                }
+
+                // in principe het zelfde verhaal als met masteries
+                List<Rune> r = p.get(i).getRunes();
+                for (int rune = 0; rune < r.size(); rune++) {
+                    long rId = r.get(rune).getRuneId();
+                    long runeId;
+                    for (int list = 0; list < runess.size(); list++) {
+                        runeId = runess.get(list).getId();
+                        if (rId == runeId) {
+                            com.robrua.orianna.type.dto.staticdata.Rune currRune = runess.get(list);
+                            Log.d("runename", currRune.getName() + " " + r.get(rune).getCount() + " * " + currRune.getDescription());
+                        }
+                    }
+                }
+                String div = null;
+
+                try {
+                    Map<Long, List<League>> league = BaseRiotAPI.getSummonerLeagueEntries(pId);
+
+                    div = league.get(pId).get(0).getTier() + " " + league.get(pId).get(0).getEntries().get(0).getDivision();
+                } catch (APIException e) {
+                    div = "unranked";
+                }
+
+                if (team == 100) {
+                    Log.d("blue team", pName + " " + div);
+                } else {
+                    Log.d("purple team", pName + " " + div);
+                }
+            }
+
+            sFound = true;
+        }catch (APIException e){
+            sFound = false;
         }
         return null;
     }
@@ -179,7 +287,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             alert11.show();
         }
     }
-    public Summoner setSummoner(String input){
+    /**public Summoner setSummoner(String input){
         return RiotAPI.getSummonerByName(input);
     }
 
@@ -214,6 +322,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
         } catch (Exception e) {
             return "unranked";
         }
-    }
+    }*/
 
 }

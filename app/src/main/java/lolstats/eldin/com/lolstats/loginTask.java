@@ -12,16 +12,22 @@ import android.util.Log;
 import com.robrua.orianna.api.dto.BaseRiotAPI;
 import com.robrua.orianna.type.core.common.Region;
 import com.robrua.orianna.type.dto.champion.Champion;
+import com.robrua.orianna.type.dto.champion.ChampionList;
 import com.robrua.orianna.type.dto.league.League;
 import com.robrua.orianna.type.dto.league.LeagueEntry;
+import com.robrua.orianna.type.dto.stats.AggregatedStats;
+import com.robrua.orianna.type.dto.stats.ChampionStats;
 import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
 import junit.framework.Assert;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 
 /**
@@ -39,6 +45,10 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     String threeWins;
     ProgressDialog p;
 
+    String avgKill;
+    String avgAssist;
+    String avgDeaths;
+
     Activity mActivity;
 
     public loginTask (Activity activity){
@@ -51,6 +61,23 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     }
 
     public boolean sFound;
+
+    private void champMap(){
+        Map<Long, String> cMap = new HashMap<Long, String>();
+        cMap.put(266L, "Aatrox");
+        cMap.put(412L, "Thresh");
+        cMap.put(23L, "Tryndamere");
+        cMap.put(79L, "Gragas");
+        cMap.put(69L, "Cassiopeia");
+        cMap.put(13L, "Ryze");
+        cMap.put(78L, "Poppy");
+        cMap.put(14L, "Sion");
+        cMap.put(1L, "Annie");
+        cMap.put(111L, "Nautilus");
+        cMap.put(43L, "Karma");
+        cMap.put(99L, "Lux");
+
+    }
 
     @Override
     protected void onPreExecute(){
@@ -72,11 +99,22 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             Log.d("name2", summoner + "");
             Log.d("name3", summoners + "");
             userName = summoner.getName();
-
-
             long sd = summoner.getId();
+
             try {
                 Map<Long, List<League>> league = BaseRiotAPI.getSummonerLeagueEntries(sd);
+
+                List<ChampionStats> r = BaseRiotAPI.getRankedStats(sd).getChampions();
+                AggregatedStats stats = r.get(0).getStats();
+
+                int totalPlayed = stats.getTotalSessionsPlayed();
+                int kills = stats.getTotalChampionKills();
+                int assists = stats.getTotalAssists();
+                int deaths = stats.getTotalDeathsPerSession();
+
+                int aKills = totalPlayed / kills;
+                int aAssists = totalPlayed / assists;
+                int aDeaths = totalPlayed / deaths;
 
                 try {
                     divisionSolo = league.get(sd).get(0).getTier() + " " + league.get(sd).get(0).getEntries().get(0).getDivision() + " " +
@@ -115,7 +153,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
         }
 
              return null;
-    }
+        }
 
     @Override
     protected void onPostExecute(Void unused){
@@ -148,9 +186,4 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             alert11.show();
         }
     }
-    /**
-    private void backup(){
-
-    }*/
-
-        }
+}
