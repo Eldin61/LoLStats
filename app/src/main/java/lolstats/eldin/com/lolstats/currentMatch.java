@@ -24,8 +24,10 @@ import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Created by Eldin on 18-5-2015.
@@ -34,10 +36,12 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     static String sName;
     String userName;
     String currentGame;
-    List<String> Summoners = new ArrayList<>();
-    List<String> Divs = new ArrayList<>();
+    ArrayList<String> Summoners = new ArrayList<>();
+    ArrayList<String> Divs = new ArrayList<>();
     List<Long> SummonerSpell1 = new ArrayList<>();
     List<Long> SummonerSpell2 = new ArrayList<>();
+    Double blueKans;
+    Double redKans;
 
     String Summoner1;
     String Summoner2;
@@ -66,6 +70,11 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     ProgressDialog p;
 
     Activity mActivity;
+
+    int blueScore = 0;
+    int redScore = 0;
+
+
 
 
     Activity o;
@@ -179,6 +188,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
 
 
+
+
             // hier zoekt die alle participants op van de current game en stopt ze in een lijst
                 List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
 
@@ -238,12 +249,18 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 Divs.add(div);
 
                 if (team == 100) {
-                    Log.d("Blue team", pName + " " + div + " "+ sums1 + " " + sums2);
+                    blueScore += (int)getdMap(div);
+                    Log.d("Blue team", pName + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + blueScore);
                 } else {
-                    Log.d("Red team", pName + " " + div + " "+ sums1 + " " + sums2);
+                    Log.d("Red team", pName + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + redScore);
+                    redScore += (int)getdMap(div);
                 }
-            }
 
+            }
+            //Log.d("Blue chance: ", kans(blueScore, redScore)+ "");
+            //Log.d("Red chance:", kans(redScore, blueScore) + "");
+            blueKans = kans(blueScore, redScore);
+            redKans = kans(redScore, blueScore);
             sFound = true;
         }catch (APIException e){
             sFound = false;
@@ -273,7 +290,15 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putExtra("Summoner9", Summoner9);
             intent.putExtra("Summoner10", Summoner10);
 
-            intent.putExtra("Summoner1Div",Divs.get(0));
+
+            intent.putStringArrayListExtra("SummonerNames", Summoners);
+            intent.putStringArrayListExtra("Divisions", Divs);
+
+            intent.putExtra("blueKans", blueKans);
+            intent.putExtra("redKans", redKans);
+
+
+            intent.putExtra("Summoner1Div", Divs.get(0));
             intent.putExtra("Summoner2Div",Divs.get(1));
             intent.putExtra("Summoner3Div",Summoner3Div);
             intent.putExtra("Summoner4Div",Summoner4Div);
@@ -345,5 +370,50 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             return "unranked";
         }
     }*/
+    public Object getdMap(String div){
+        HashMap dMap = new HashMap<String, Integer>();
+        dMap.put("BRONZE V", 0);
+        dMap.put("BRONZE IV", 3);
+        dMap.put("BRONZE III", 6);
+        dMap.put("BRONZE II", 9);
+        dMap.put("BRONZE I", 12);
 
+        dMap.put("SILVER V", 15);
+        dMap.put("SILVER IV", 18);
+        dMap.put("SILVER III", 21);
+        dMap.put("SILVER II", 24);
+        dMap.put("SILVER I", 27);
+
+        dMap.put("GOLD V", 30);
+        dMap.put("GOLD IV", 34);
+        dMap.put("GOLD III", 38);
+        dMap.put("GOLD II", 42);
+        dMap.put("GOLD I", 46);
+
+        dMap.put("PLATINUM V", 51);
+        dMap.put("PLATINUM IV", 56);
+        dMap.put("PLATINUM III", 61);
+        dMap.put("PLATINUM II", 66);
+        dMap.put("PLATINUM I", 71);
+
+        dMap.put("DIAMOND V", 77);
+        dMap.put("DIAMOND IV", 83);
+        dMap.put("DIAMOND III", 89);
+        dMap.put("DIAMOND II", 95);
+        dMap.put("DIAMOND I", 101);
+
+        dMap.put("MASTER I", 110);
+
+        dMap.put("CHALLENGER 1", 125);
+
+        dMap.put("unranked", 12);
+
+        return dMap.get(div);
+
+    }
+    public double kans(int a, int b){
+        double c;
+        c = a+b;
+        return Math.round((a / c) * 100);
+    }
 }

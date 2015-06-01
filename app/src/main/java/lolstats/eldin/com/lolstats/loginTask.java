@@ -141,7 +141,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 }
 
             } catch (APIException e){
-                divisionSolo = "unranked";
+                divisionSolo = "Unranked";
                 divisionTeam = "Unranked";
                 divisionThree = "Unranked";
             }
