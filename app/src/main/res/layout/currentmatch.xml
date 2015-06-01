@@ -32,6 +32,27 @@
                 android:id="@+id/Summoner1Div"
                 android:layout_gravity="right" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Summoner1DivPic"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"
+                android:id="@+id/Summoner1Spell1" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"
+                android:id="@+id/Summoner1Spell2" />
+
         </TableRow>
 
         <TableRow>
@@ -47,6 +68,27 @@
                 android:text="New Text"
                 android:id="@+id/Summoner2Div"
                 android:layout_gravity="right" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Summoner2DivPic"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"
+                android:id="@+id/Summoner2Spell1" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="center"
+                android:id="@+id/Summoner2Spell2" />
         </TableRow>
 
     </TableLayout>

@@ -19,6 +19,7 @@ import com.robrua.orianna.type.dto.league.League;
 import com.robrua.orianna.type.dto.staticdata.BasicDataStats;
 import com.robrua.orianna.type.dto.staticdata.MasteryList;
 import com.robrua.orianna.type.dto.staticdata.RuneList;
+import com.robrua.orianna.type.dto.staticdata.SummonerSpellList;
 import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
@@ -33,6 +34,10 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     static String sName;
     String userName;
     String currentGame;
+    List<String> Summoners = new ArrayList<>();
+    List<String> Divs = new ArrayList<>();
+    List<Long> SummonerSpell1 = new ArrayList<>();
+    List<Long> SummonerSpell2 = new ArrayList<>();
 
     String Summoner1;
     String Summoner2;
@@ -171,6 +176,9 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             // list mastery enzo
             List<com.robrua.orianna.type.dto.staticdata.Mastery> masteryArray = new ArrayList<>(masteryList.getData().values());
 
+
+
+
             // hier zoekt die alle participants op van de current game en stopt ze in een lijst
                 List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
 
@@ -180,40 +188,44 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 String pName = p.get(i).getSummonerName();
                 long team = p.get(i).getTeamId();
                 long pId = p.get(i).getSummonerId();
-
+                long sums1 = p.get(i).getSpell1Id();
+                long sums2 = p.get(i).getSpell2Id();
+                Summoners.add(pName);
+                SummonerSpell1.add(sums1);
+                SummonerSpell2.add(sums2);
                 //lijst met current game masteries
                 List<Mastery> g = p.get(i).getMasteries();
 
                 // deze loop gaat door de list heen van current game masteries en pakt de mastery id's
-                for (int z = 0; z < g.size(); z++) {
-                    long mId = g.get(z).getMasteryId();
-                    long masteryId;
-
-                    // deze loop gaat door de static masteries heen en pakt de id's ervan
-                    for (int mI = 0; mI < masteryArray.size(); mI++) {
-                        masteryId = masteryArray.get(mI).getId();
-
-                        // als allebei de masteries met elkaar overheenkomen print die dus de naam, rank en mastery tree uit
-                        if (mId == masteryId) {
-                            com.robrua.orianna.type.dto.staticdata.Mastery staticMa = masteryArray.get(mI);
-                            Log.d("Mastery", staticMa.getName() + " Rank: " + g.get(z).getRank() + " Tree: " + staticMa.getMasteryTree());
-                        }
-                    }
-                }
+//                for (int z = 0; z < g.size(); z++) {
+//                    long mId = g.get(z).getMasteryId();
+//                    long masteryId;
+//
+//                    // deze loop gaat door de static masteries heen en pakt de id's ervan
+//                    for (int mI = 0; mI < masteryArray.size(); mI++) {
+//                        masteryId = masteryArray.get(mI).getId();
+//
+//                        // als allebei de masteries met elkaar overheenkomen print die dus de naam, rank en mastery tree uit
+//                        if (mId == masteryId) {
+//                            com.robrua.orianna.type.dto.staticdata.Mastery staticMa = masteryArray.get(mI);
+//                            Log.d("Mastery", staticMa.getName() + " Rank: " + g.get(z).getRank() + " Tree: " + staticMa.getMasteryTree());
+//                        }
+//                    }
+//                }
 
                 // in principe het zelfde verhaal als met masteries
-                List<Rune> r = p.get(i).getRunes();
-                for (int rune = 0; rune < r.size(); rune++) {
-                    long rId = r.get(rune).getRuneId();
-                    long runeId;
-                    for (int list = 0; list < runess.size(); list++) {
-                        runeId = runess.get(list).getId();
-                        if (rId == runeId) {
-                            com.robrua.orianna.type.dto.staticdata.Rune currRune = runess.get(list);
-                            Log.d("runename", currRune.getName() + " " + r.get(rune).getCount() + " * " + currRune.getDescription());
-                        }
-                    }
-                }
+//                List<Rune> r = p.get(i).getRunes();
+//                for (int rune = 0; rune < r.size(); rune++) {
+//                    long rId = r.get(rune).getRuneId();
+//                    long runeId;
+//                    for (int list = 0; list < runess.size(); list++) {
+//                        runeId = runess.get(list).getId();
+//                        if (rId == runeId) {
+//                            com.robrua.orianna.type.dto.staticdata.Rune currRune = runess.get(list);
+//                            Log.d("runename", currRune.getName() + " " + r.get(rune).getCount() + " * " + currRune.getDescription());
+//                        }
+//                    }
+//                }
                 String div = null;
 
                 try {
@@ -223,11 +235,12 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 } catch (APIException e) {
                     div = "unranked";
                 }
+                Divs.add(div);
 
                 if (team == 100) {
-                    Log.d("blue team", pName + " " + div);
+                    Log.d("Blue team", pName + " " + div + " "+ sums1 + " " + sums2);
                 } else {
-                    Log.d("purple team", pName + " " + div);
+                    Log.d("Red team", pName + " " + div + " "+ sums1 + " " + sums2);
                 }
             }
 
@@ -249,8 +262,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             intent.putExtra("name", sName);
 
-            intent.putExtra("Summoner1", Summoner1);
-            intent.putExtra("Summoner2", Summoner2);
+            intent.putExtra("Summoner1", Summoners.get(0));
+            intent.putExtra("Summoner2", Summoners.get(1));
             intent.putExtra("Summoner3", Summoner3);
             intent.putExtra("Summoner4", Summoner4);
             intent.putExtra("Summoner5", Summoner5);
@@ -260,8 +273,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putExtra("Summoner9", Summoner9);
             intent.putExtra("Summoner10", Summoner10);
 
-            intent.putExtra("Summoner1Div",Summoner1Div);
-            intent.putExtra("Summoner2Div",Summoner2Div);
+            intent.putExtra("Summoner1Div",Divs.get(0));
+            intent.putExtra("Summoner2Div",Divs.get(1));
             intent.putExtra("Summoner3Div",Summoner3Div);
             intent.putExtra("Summoner4Div",Summoner4Div);
             intent.putExtra("Summoner5Div",Summoner5Div);
@@ -270,6 +283,13 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putExtra("Summoner8Div",Summoner8Div);
             intent.putExtra("Summoner9Div",Summoner9Div);
             intent.putExtra("Summoner10Div",Summoner10Div);
+
+            intent.putExtra("Summoner1Spell1", SummonerSpell1.get(0));
+            intent.putExtra("Summoner1Spell2", SummonerSpell2.get(0));
+
+            intent.putExtra("Summoner2Spell1", SummonerSpell1.get(1));
+            intent.putExtra("Summoner2Spell2", SummonerSpell2.get(1));
+
 
             //intent.putExtra("currentGame", currentGame);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
