@@ -414,32 +414,34 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     public double kans(int a, int b){
         double diff;
         diff = a - b;
-        if (diff <= -30){
-            return 20;
-        }
-        if (diff <= -20 && diff > -30)
-            return 30;
-        if (diff <= -10 && diff > -20){
-            return 40;
-        }
-        if (diff <= -5 && diff > -10){
-            return 45;
-        }
-        if (diff > -5 && diff <=5){
-            return 50;
-        }
-        if (diff > 5 && diff <=10){
-            return 55;
-        }
-        if (diff > 10 && diff <=20){
-            return 60;
-        }
-        if (diff > 20 && diff <=30){
-            return 70;
-        }
-        if (diff > 30){
-            return 80;
-        }
-        else return 50;
+//        if (diff <= -30){
+//            return 20;
+//        }
+//        if (diff <= -20 && diff > -30)
+//            return 30;
+//        if (diff <= -10 && diff > -20){
+//            return 40;
+//        }
+//        if (diff <= -5 && diff > -10){
+//            return 45;
+//        }
+//        if (diff > -5 && diff <=5){
+//            return 50;
+//        }
+//        if (diff > 5 && diff <=10){
+//            return 55;
+//        }
+//        if (diff > 10 && diff <=20){
+//            return 60;
+//        }
+//        if (diff > 20 && diff <=30){
+//            return 70;
+//        }
+//        if (diff > 30){
+//            return 80;
+//        }
+//        else return 50;
+        diff = diff * 1.5;
+        return 50 + diff;
     }
 }
