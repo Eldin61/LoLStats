@@ -260,7 +260,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             //Log.d("Blue chance: ", kans(blueScore, redScore)+ "");
             //Log.d("Red chance:", kans(redScore, blueScore) + "");
             blueKans = kans(blueScore, redScore);
-            redKans = kans(redScore, blueScore);
+            //redKans = kans(redScore, blueScore);
             sFound = true;
         }catch (APIException e){
             sFound = false;
@@ -295,7 +295,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putStringArrayListExtra("Divisions", Divs);
 
             intent.putExtra("blueKans", blueKans);
-            intent.putExtra("redKans", redKans);
+            //intent.putExtra("redKans", redKans);
 
 
             intent.putExtra("Summoner1Div", Divs.get(0));
@@ -373,47 +373,73 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     public Object getdMap(String div){
         HashMap dMap = new HashMap<String, Integer>();
         dMap.put("BRONZE V", 0);
-        dMap.put("BRONZE IV", 3);
-        dMap.put("BRONZE III", 6);
-        dMap.put("BRONZE II", 9);
-        dMap.put("BRONZE I", 12);
+        dMap.put("BRONZE IV", 1);
+        dMap.put("BRONZE III", 2);
+        dMap.put("BRONZE II", 3);
+        dMap.put("BRONZE I", 4);
 
-        dMap.put("SILVER V", 15);
-        dMap.put("SILVER IV", 18);
-        dMap.put("SILVER III", 21);
-        dMap.put("SILVER II", 24);
-        dMap.put("SILVER I", 27);
+        dMap.put("SILVER V", 6);
+        dMap.put("SILVER IV", 8);
+        dMap.put("SILVER III", 10);
+        dMap.put("SILVER II", 12);
+        dMap.put("SILVER I", 14);
 
-        dMap.put("GOLD V", 30);
-        dMap.put("GOLD IV", 34);
-        dMap.put("GOLD III", 38);
-        dMap.put("GOLD II", 42);
-        dMap.put("GOLD I", 46);
+        dMap.put("GOLD V", 17);
+        dMap.put("GOLD IV", 20);
+        dMap.put("GOLD III", 23);
+        dMap.put("GOLD II", 26);
+        dMap.put("GOLD I", 29);
 
-        dMap.put("PLATINUM V", 51);
-        dMap.put("PLATINUM IV", 56);
-        dMap.put("PLATINUM III", 61);
-        dMap.put("PLATINUM II", 66);
-        dMap.put("PLATINUM I", 71);
+        dMap.put("PLATINUM V", 33);
+        dMap.put("PLATINUM IV", 37);
+        dMap.put("PLATINUM III", 41);
+        dMap.put("PLATINUM II", 45);
+        dMap.put("PLATINUM I", 49);
 
-        dMap.put("DIAMOND V", 77);
-        dMap.put("DIAMOND IV", 83);
-        dMap.put("DIAMOND III", 89);
-        dMap.put("DIAMOND II", 95);
-        dMap.put("DIAMOND I", 101);
+        dMap.put("DIAMOND V", 54);
+        dMap.put("DIAMOND IV", 59);
+        dMap.put("DIAMOND III", 64);
+        dMap.put("DIAMOND II", 69);
+        dMap.put("DIAMOND I", 74);
 
-        dMap.put("MASTER I", 110);
+        dMap.put("MASTER I", 80);
 
-        dMap.put("CHALLENGER 1", 125);
+        dMap.put("CHALLENGER 1", 90);
 
-        dMap.put("unranked", 12);
+        dMap.put("unranked", 34);
 
         return dMap.get(div);
 
     }
     public double kans(int a, int b){
-        double c;
-        c = a+b;
-        return Math.round((a / c) * 100);
+        double diff;
+        diff = a - b;
+        if (diff <= -30){
+            return 20;
+        }
+        if (diff <= -20 && diff > -30)
+            return 30;
+        if (diff <= -10 && diff > -20){
+            return 40;
+        }
+        if (diff <= -5 && diff > -10){
+            return 45;
+        }
+        if (diff > -5 && diff <=5){
+            return 50;
+        }
+        if (diff > 5 && diff <=10){
+            return 55;
+        }
+        if (diff > 10 && diff <=20){
+            return 60;
+        }
+        if (diff > 20 && diff <=30){
+            return 70;
+        }
+        if (diff > 30){
+            return 80;
+        }
+        else return 50;
     }
 }

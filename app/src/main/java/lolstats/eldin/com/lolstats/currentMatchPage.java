@@ -66,7 +66,7 @@ public class currentMatchPage extends ActionBarActivity {
             Divisions = extras.getStringArrayList("Divisions");
 
             blueKans = extras.getDouble("blueKans");
-            redKans = extras.getDouble("redKans");
+            //redKans = extras.getDouble("redKans");
 
         }
         TextView tvUserName = (TextView) findViewById(R.id.Username);
@@ -76,7 +76,7 @@ public class currentMatchPage extends ActionBarActivity {
         tvblueKans.setText("Blue chance: " + blueKans + " %");
 
         TextView tvredKans = (TextView)findViewById(R.id.redKans);
-        tvredKans.setText("Red chance: " + redKans + " %");
+        tvredKans.setText("Red chance: " + (100 - blueKans) + " %");
 
         TextView tvSummoner1 = (TextView) findViewById(R.id.Summoner1);
         tvSummoner1.setText(Summoner1);
