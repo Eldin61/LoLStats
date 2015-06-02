@@ -30,6 +30,9 @@ public class currentMatchPage extends ActionBarActivity {
         String Summoner1 = "";
         String Summoner2 = "";
 
+        String Pick1 = "";
+        String Pick2 = "";
+
         String Summoner1Div = "";
         String Summoner2Div = "";
 
@@ -53,6 +56,9 @@ public class currentMatchPage extends ActionBarActivity {
 
             Summoner1 = extras.getString("Summoner1");
             Summoner2 = extras.getString("Summoner2");
+
+            Pick1 = extras.getString("Pick1");
+            Pick2 = extras.getString("Pick2");
 
             Summoner1Div = extras.getString("Summoner1Div");
             Summoner2Div = extras.getString("Summoner2Div");
@@ -83,6 +89,12 @@ public class currentMatchPage extends ActionBarActivity {
         TextView tvSummoner2 = (TextView) findViewById(R.id.Summoner2);
         tvSummoner2.setText(Summoner2);
 
+        TextView tvPick1 = (TextView) findViewById(R.id.Pick1);
+        tvPick1.setText(Pick1);
+
+        TextView tvPick2 = (TextView) findViewById(R.id.Pick2);
+        tvPick2.setText(Pick2);
+
         TextView tvSummoner1Div = (TextView) findViewById(R.id.Summoner1Div);
         tvSummoner1Div.setText(Summoner1Div);
         ImageView Summoner1DivPic = (ImageView) findViewById(R.id.Summoner1DivPic);
@@ -103,8 +115,8 @@ public class currentMatchPage extends ActionBarActivity {
         ImageView imgSummoner2Spell2 = (ImageView) findViewById(R.id.Summoner2Spell2);
         setSumSpel(Summoner2Spell2, imgSummoner2Spell2);
 
-        //TextView tvCurrentGame = (TextView) findViewById(R.id.CurrentGame);
-        //tvCurrentGame.setText(currentGame);
+//        TextView tvCurrentGame = (TextView) findViewById(R.id.CurrentGame);
+//        tvCurrentGame.setText(currentGame);
     }
 
     public void setData (String Summoner,String div, ImageView imgDiv,long sum1, long sum2, ImageView sumSpell1, ImageView sumSpell2 ){
@@ -114,8 +126,8 @@ public class currentMatchPage extends ActionBarActivity {
         temp.setText(Summoner);
         temp.setText(div);
         setDivPic(div, imgDiv);
-        setSumSpel(sum1, sumSpell1);
-        setSumSpel(sum2, sumSpell2);
+//        setSumSpel(sum1, sumSpell1);
+//        setSumSpel(sum2, sumSpell2);
 
 
     }

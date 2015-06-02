@@ -17,6 +17,8 @@ import com.robrua.orianna.type.dto.currentgame.Participant;
 import com.robrua.orianna.type.dto.currentgame.Rune;
 import com.robrua.orianna.type.dto.league.League;
 import com.robrua.orianna.type.dto.staticdata.BasicDataStats;
+import com.robrua.orianna.type.dto.staticdata.Champion;
+import com.robrua.orianna.type.dto.staticdata.ChampionList;
 import com.robrua.orianna.type.dto.staticdata.MasteryList;
 import com.robrua.orianna.type.dto.staticdata.RuneList;
 import com.robrua.orianna.type.dto.staticdata.SummonerSpellList;
@@ -37,6 +39,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     String userName;
     String currentGame;
     ArrayList<String> Summoners = new ArrayList<>();
+    ArrayList<String> Champpicks = new ArrayList<>();
     ArrayList<String> Divs = new ArrayList<>();
     List<Long> SummonerSpell1 = new ArrayList<>();
     List<Long> SummonerSpell2 = new ArrayList<>();
@@ -186,22 +189,45 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             List<com.robrua.orianna.type.dto.staticdata.Mastery> masteryArray = new ArrayList<>(masteryList.getData().values());
 
 
+            ChampionList champs = BaseRiotAPI.getChampions();
+            Champion testchampname = BaseRiotAPI.getChampion(89);
+            String test = testchampname.getName();
+            List<Champion> champions = new ArrayList<>(champs.getData().values());
+            //Log.d("Test champid", champions.get(39).getName() + ".");
 
+            int all = champions.size();
+            for(int x = 1; x < all; x++) {
+                if (x == all) {
+                    break;
+                } else {
+                    Log.d("Test 2 ", x + " " + "Champy " + test + " " + champions.get(x).getName() + ".");
+
+                }
+            }
 
 
 
             // hier zoekt die alle participants op van de current game en stopt ze in een lijst
+
                 List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
+
 
             // hier word het wat lastiger
             // deze loop gaat door de list heen van alle participants, elke participant pakt die dus de naam, id en masteries
             for (int i = 0; i < p.size(); i++) {
+                long b = 0;
+
                 String pName = p.get(i).getSummonerName();
+                long champ = p.get(i).getChampionId();
                 long team = p.get(i).getTeamId();
+                b = champ;
+                Champion champy = BaseRiotAPI.getChampion(b);
+                String chosenchamp = champy.getName();
                 long pId = p.get(i).getSummonerId();
                 long sums1 = p.get(i).getSpell1Id();
                 long sums2 = p.get(i).getSpell2Id();
                 Summoners.add(pName);
+                Champpicks.add(chosenchamp);
                 SummonerSpell1.add(sums1);
                 SummonerSpell2.add(sums2);
                 //lijst met current game masteries
@@ -250,9 +276,9 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
                 if (team == 100) {
                     blueScore += (int)getdMap(div);
-                    Log.d("Blue team", pName + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + blueScore);
+                    Log.d("Blue team", pName + " as  " + chosenchamp + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + blueScore);
                 } else {
-                    Log.d("Red team", pName + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + redScore);
+                    Log.d("Red team", pName + " as  " + chosenchamp + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + redScore);
                     redScore += (int)getdMap(div);
                 }
 
@@ -290,8 +316,11 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putExtra("Summoner9", Summoner9);
             intent.putExtra("Summoner10", Summoner10);
 
+            intent.putExtra("Pick1", Champpicks.get(0));
+            intent.putExtra("Pick2", Champpicks.get(1));
 
             intent.putStringArrayListExtra("SummonerNames", Summoners);
+            intent.putStringArrayListExtra("Picks", Champpicks);
             intent.putStringArrayListExtra("Divisions", Divs);
 
             intent.putExtra("blueKans", blueKans);
