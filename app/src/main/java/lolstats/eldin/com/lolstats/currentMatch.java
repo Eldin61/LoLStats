@@ -325,7 +325,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             intent.putExtra("blueKans", blueKans);
             //intent.putExtra("redKans", redKans);
-            //werk
 
 
             intent.putExtra("Summoner1Div", Divs.get(0));
