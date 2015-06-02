@@ -278,7 +278,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             Intent intent = new Intent(mActivity, currentMatchPage.class);
 
             intent.putExtra("name", sName);
-
+            //erm?
             intent.putExtra("Summoner1", Summoners.get(0));
             intent.putExtra("Summoner2", Summoners.get(1));
             intent.putExtra("Summoner3", Summoner3);
