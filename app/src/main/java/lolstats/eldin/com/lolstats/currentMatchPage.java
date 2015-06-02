@@ -178,6 +178,9 @@ public class currentMatchPage extends ActionBarActivity {
         if (sum == 11){
             img.setImageResource(R.drawable.smite);
         }
+        if (sum == 32){
+            img.setImageResource(R.drawable.mark);
+        }
         return null;
     }
 }
