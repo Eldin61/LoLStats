@@ -37,36 +37,13 @@ import java.util.Map;
 public class currentMatch extends AsyncTask<Void, Void, Void>{
     static String sName;
     String userName;
-    String currentGame;
+
     ArrayList<String> Summoners = new ArrayList<>();
     ArrayList<String> Champpicks = new ArrayList<>();
     ArrayList<String> Divs = new ArrayList<>();
-    List<Long> SummonerSpell1 = new ArrayList<>();
-    List<Long> SummonerSpell2 = new ArrayList<>();
+    ArrayList<Long> SummonerSpell1 = new ArrayList<>();
+    ArrayList<Long> SummonerSpell2 = new ArrayList<>();
     Double blueKans;
-    Double redKans;
-
-    String Summoner1;
-    String Summoner2;
-    String Summoner3;
-    String Summoner4;
-    String Summoner5;
-    String Summoner6;
-    String Summoner7;
-    String Summoner8;
-    String Summoner9;
-    String Summoner10;
-
-    String Summoner1Div;
-    String Summoner2Div;
-    String Summoner3Div;
-    String Summoner4Div;
-    String Summoner5Div;
-    String Summoner6Div;
-    String Summoner7Div;
-    String Summoner8Div;
-    String Summoner9Div;
-    String Summoner10Div;
 
     public boolean sFound;
 
@@ -96,66 +73,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
     @Override
     protected Void doInBackground(Void... params) {
-        /**try {
-            RiotAPI.setMirror(Region.EUW);
-            RiotAPI.setRegion(Region.EUW);
-            RiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
-            Summoner summoner = RiotAPI.getSummonerByName(sName);
-            String Player = summoner.getCurrentGame().getParticipants().toString();
-            userName = summoner.getName();
-            getChampion(summoner);
-
-            Player = Player.replaceAll("Participant", "").replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\(", "").replaceAll("\\)", "").replaceAll("CurrentGameInfo", "");
-            String[] parts = Player.split(", ");
-
-
-            Summoner1 = parts[0].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner2 = parts[1].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner3 = parts[2].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner4 = parts[3].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner5 = parts[4].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner6 = parts[5].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner7 = parts[6].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner8 = parts[7].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner9 = parts[8].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-            Summoner10 = parts[9].replaceAll("^\\s+", "").replaceAll(" as .*", "");
-
-            Summoner summoner1 = setSummoner(Summoner1);
-            Summoner summoner2 = setSummoner(Summoner2);
-            Summoner summoner3 = setSummoner(Summoner3);
-            Summoner summoner4 = setSummoner(Summoner4);
-            Summoner summoner5 = setSummoner(Summoner5);
-            Summoner summoner6 = setSummoner(Summoner6);
-            Summoner summoner7 = setSummoner(Summoner7);
-            Summoner summoner8 = setSummoner(Summoner8);
-            Summoner summoner9 = setSummoner(Summoner9);
-            Summoner summoner10 = setSummoner(Summoner10);
-
-            Summoner1Div = getDivision(summoner1);
-            Summoner2Div = getDivision(summoner2);
-            Summoner3Div = getDivision(summoner3);
-            Summoner4Div = getDivision(summoner4);
-            Summoner5Div = getDivision(summoner5);
-            Summoner6Div = getDivision(summoner6);
-            Summoner7Div = getDivision(summoner7);
-            Summoner8Div = getDivision(summoner8);
-            Summoner9Div = getDivision(summoner9);
-            Summoner10Div = getDivision(summoner10);
-
-//            Summoner summoner1 = RiotAPI.getSummonerByName(Summoner1);
-//            Summoner summoner2 = RiotAPI.getSummonerByName(Summoner2);
-//            Summoner1Div = summoner1.getLeagueEntries().get(0).getTier() + " " + summoner1.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner1.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
-//            Summoner2Div = summoner2.getLeagueEntries().get(0).getTier() + " " + summoner2.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + summoner2.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
-
-
-
-            //currentGame = ("\n"+ Summoner1 + "\n" + Summoner2 + "\n" + Summoner3 + "\n" + Summoner4 + "\n" + Summoner5 + "\n" + Summoner6 + "\n" + Summoner7 + "\n" + Summoner8 + "\n" + Summoner9 + "\n" + Summoner10 );
-
-            sFound = true;
-        } catch (NullPointerException e)
-        {
-            sFound = false;
-        }*/
         try {
 
             BaseRiotAPI.setMirror(Region.EUW);
@@ -195,15 +112,15 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             List<Champion> champions = new ArrayList<>(champs.getData().values());
             //Log.d("Test champid", champions.get(39).getName() + ".");
 
-            int all = champions.size();
-            for(int x = 1; x < all; x++) {
-                if (x == all) {
-                    break;
-                } else {
-                    Log.d("Test 2 ", x + " " + "Champy " + test + " " + champions.get(x).getName() + ".");
-
-                }
-            }
+//            int all = champions.size();
+//            for(int x = 1; x < all; x++) {
+//                if (x == all) {
+//                    break;
+//                } else {
+//                    Log.d("Test 2 ", x + " " + "Champy " + test + " " + champions.get(x).getName() + ".");
+//
+//                }
+//            }
 
 
 
@@ -290,8 +207,10 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             sFound = true;
         }catch (APIException e){
             sFound = false;
+            Log.d("apiex","apiex");
         } catch (NullPointerException e){
             sFound = false;
+            Log.d("nullex","nullex");
         }
         return null;
     }
@@ -304,45 +223,46 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             Intent intent = new Intent(mActivity, currentMatchPage.class);
 
             intent.putExtra("name", sName);
-            //erm?
-            intent.putExtra("Summoner1", Summoners.get(0));
-            intent.putExtra("Summoner2", Summoners.get(1));
-            intent.putExtra("Summoner3", Summoner3);
-            intent.putExtra("Summoner4", Summoner4);
-            intent.putExtra("Summoner5", Summoner5);
-            intent.putExtra("Summoner6", Summoner6);
-            intent.putExtra("Summoner7", Summoner7);
-            intent.putExtra("Summoner8", Summoner8);
-            intent.putExtra("Summoner9", Summoner9);
-            intent.putExtra("Summoner10", Summoner10);
-
-            intent.putExtra("Pick1", Champpicks.get(0));
-            intent.putExtra("Pick2", Champpicks.get(1));
 
             intent.putStringArrayListExtra("SummonerNames", Summoners);
             intent.putStringArrayListExtra("Picks", Champpicks);
             intent.putStringArrayListExtra("Divisions", Divs);
 
             intent.putExtra("blueKans", blueKans);
-            //intent.putExtra("redKans", redKans);
 
 
             intent.putExtra("Summoner1Div", Divs.get(0));
             intent.putExtra("Summoner2Div",Divs.get(1));
-            intent.putExtra("Summoner3Div",Summoner3Div);
-            intent.putExtra("Summoner4Div",Summoner4Div);
-            intent.putExtra("Summoner5Div",Summoner5Div);
-            intent.putExtra("Summoner6Div",Summoner6Div);
-            intent.putExtra("Summoner7Div",Summoner7Div);
-            intent.putExtra("Summoner8Div",Summoner8Div);
-            intent.putExtra("Summoner9Div",Summoner9Div);
-            intent.putExtra("Summoner10Div",Summoner10Div);
+            intent.putExtra("Summoner3Div",Divs.get(2));
+            intent.putExtra("Summoner4Div",Divs.get(3));
+            intent.putExtra("Summoner5Div",Divs.get(4));
+            intent.putExtra("Summoner6Div",Divs.get(5));
+            intent.putExtra("Summoner7Div",Divs.get(6));
+            intent.putExtra("Summoner8Div",Divs.get(7));
+            intent.putExtra("Summoner9Div",Divs.get(8));
+            intent.putExtra("Summoner10Div",Divs.get(9));
 
             intent.putExtra("Summoner1Spell1", SummonerSpell1.get(0));
             intent.putExtra("Summoner1Spell2", SummonerSpell2.get(0));
-
             intent.putExtra("Summoner2Spell1", SummonerSpell1.get(1));
             intent.putExtra("Summoner2Spell2", SummonerSpell2.get(1));
+            intent.putExtra("Summoner3Spell1", SummonerSpell1.get(2));
+            intent.putExtra("Summoner3Spell2", SummonerSpell2.get(2));
+            intent.putExtra("Summoner4Spell1", SummonerSpell1.get(3));
+            intent.putExtra("Summoner4Spell2", SummonerSpell2.get(3));
+            intent.putExtra("Summoner5Spell1", SummonerSpell1.get(4));
+            intent.putExtra("Summoner5Spell2", SummonerSpell2.get(4));
+            intent.putExtra("Summoner6Spell1", SummonerSpell1.get(5));
+            intent.putExtra("Summoner6Spell2", SummonerSpell2.get(5));
+            intent.putExtra("Summoner7Spell1", SummonerSpell1.get(6));
+            intent.putExtra("Summoner7Spell2", SummonerSpell2.get(6));
+            intent.putExtra("Summoner8Spell1", SummonerSpell1.get(7));
+            intent.putExtra("Summoner8Spell2", SummonerSpell2.get(7));
+            intent.putExtra("Summoner9Spell1", SummonerSpell1.get(8));
+            intent.putExtra("Summoner9Spell2", SummonerSpell2.get(8));
+            intent.putExtra("Summoner10Spell1", SummonerSpell1.get(9));
+            intent.putExtra("Summoner10Spell2", SummonerSpell2.get(9));
+
 
 
             //intent.putExtra("currentGame", currentGame);
@@ -443,33 +363,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     public double kans(int a, int b){
         double diff;
         diff = a - b;
-//        if (diff <= -30){
-//            return 20;
-//        }
-//        if (diff <= -20 && diff > -30)
-//            return 30;
-//        if (diff <= -10 && diff > -20){
-//            return 40;
-//        }
-//        if (diff <= -5 && diff > -10){
-//            return 45;
-//        }
-//        if (diff > -5 && diff <=5){
-//            return 50;
-//        }
-//        if (diff > 5 && diff <=10){
-//            return 55;
-//        }
-//        if (diff > 10 && diff <=20){
-//            return 60;
-//        }
-//        if (diff > 20 && diff <=30){
-//            return 70;
-//        }
-//        if (diff > 30){
-//            return 80;
-//        }
-//        else return 50;
         diff = diff * 1.5;
         return 50 + diff;
     }
