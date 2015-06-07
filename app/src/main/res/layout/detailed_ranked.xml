@@ -362,6 +362,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Summoner name"
+        android:id="@+id/compS"
         android:singleLine="true"
         android:backgroundTint="@color/ColorPrimary"
         />
@@ -370,6 +371,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Compare"
+        android:onClick="compare"
         android:background="@drawable/corner"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"/>

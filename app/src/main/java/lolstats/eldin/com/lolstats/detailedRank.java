@@ -125,6 +125,7 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
             intent.putExtra("quadra", quadra);
             intent.putExtra("triple", triple);
             intent.putExtra("double", doubleK);
+            intent.putExtra("summoner", sName);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             o.startActivity(intent);
         } else {

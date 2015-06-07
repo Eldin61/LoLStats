@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -198,5 +199,18 @@ public class detailedRankedPage extends ActionBarActivity {
         Drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
         mDrawerToggle.syncState();               // Finally we set the drawer toggle sync State
 
+    }
+
+    public void compare(View w){
+        String name = null;
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            name = extras.getString("summoner");
+        }
+        EditText e = (EditText) findViewById(R.id.compS);
+        compare c = new compare(detailedRankedPage.this);
+        c.compName = e.getText().toString();
+        c.sName = name;
+        new compare(detailedRankedPage.this).execute();
     }
 }

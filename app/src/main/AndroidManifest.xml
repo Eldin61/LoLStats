@@ -36,6 +36,13 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="lolstats.eldin.com.lolstats.OverviewPage" />
     </activity>
+        <activity
+            android:name=".compPage"
+            android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lolstats.eldin.com.lolstats.detailedRankedPage" />
+        </activity>
 
     </application>
 
