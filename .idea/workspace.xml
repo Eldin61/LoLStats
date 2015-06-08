@@ -31,17 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d678d6df-ec7d-49a6-ab1c-3e90495e31df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/comp_page.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRank.java" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_21_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LoLStats.iws" />
@@ -72,33 +62,43 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="detailed_ranked.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
-              <provider editor-type-id="android-designer">
-                <state />
-              </provider>
+          <file leaf-file-name="currentMatch.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.0">
-                  <caret line="364" column="30" selection-start-line="364" selection-start-column="30" selection-end-line="364" selection-end-column="30" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="109" column="65" selection-start-line="109" selection-start-column="65" selection-end-line="109" selection-end-column="65" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detailedRankedPage.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="detailed_ranked.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-0.0">
+                  <caret line="364" column="30" selection-start-line="364" selection-start-column="30" selection-end-line="364" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+              <provider editor-type-id="android-designer">
+                <state />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="detailedRankedPage.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
+                <state vertical-scroll-proportion="0.6753472">
                   <caret line="211" column="44" selection-start-line="211" selection-start-column="44" selection-end-line="211" selection-end-column="44" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detailedRank.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="detailedRank.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRank.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.32235703">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
                   <folding />
                 </state>
@@ -112,12 +112,10 @@
           <file leaf-file-name="compare.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="50" column="85" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
+                <state vertical-scroll-proportion="0.4982639">
+                  <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#691#692#0" expanded="true" />
-                    <element signature="e#712#713#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -137,14 +135,14 @@
           </file>
           <file leaf-file-name="comp_page.xml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/comp_page.xml">
-              <provider selected="true" editor-type-id="android-designer">
-                <state />
-              </provider>
               <provider editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
+              </provider>
+              <provider selected="true" editor-type-id="android-designer">
+                <state />
               </provider>
             </entry>
           </file>
@@ -1509,7 +1507,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1754,7 +1751,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -1765,6 +1762,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1779,6 +1777,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="256" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1974,6 +1973,13 @@
       <option name="number" value="Default" />
       <updated>1433278504662</updated>
     </task>
+    <task id="LOCAL-00001" summary="compare klaar gezet. alleen nog xml en nog wat gedoe">
+      <created>1433712848641</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1433712848641</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1990,7 +1996,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5040092" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.50213903" order="7" side_tool="true" content_ui="tabs" />
@@ -2001,7 +2007,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.49786097" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32703003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1716418" sideWeight="0.49599084" order="0" side_tool="false" content_ui="combo" />
@@ -2018,8 +2024,20 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="compare klaar gezet. alleen nog xml en nog wat gedoe" />
+    <option name="LAST_COMMIT_MESSAGE" value="compare klaar gezet. alleen nog xml en nog wat gedoe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2031,50 +2049,67 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatchPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="186" column="66" selection-start-line="186" selection-start-column="66" selection-end-line="186" selection-end-column="66" />
+          <caret line="109" column="65" selection-start-line="109" selection-start-column="65" selection-end-line="109" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="364" column="30" selection-start-line="364" selection-start-column="30" selection-end-line="364" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="44" selection-start-line="8" selection-start-column="4" selection-end-line="29" selection-end-column="44" />
+          <caret line="211" column="44" selection-start-line="211" selection-start-column="44" selection-end-line="211" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/currentmatch.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="460" column="38" selection-start-line="460" selection-start-column="38" selection-end-line="460" selection-end-column="38" />
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+          <caret line="81" column="48" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/comp_page.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
@@ -2089,7 +2124,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="186" column="66" selection-start-line="186" selection-start-column="66" selection-end-line="186" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="44" selection-start-line="8" selection-start-column="4" selection-end-line="29" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/currentmatch.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="460" column="38" selection-start-line="460" selection-start-column="38" selection-end-line="460" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatchPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="66" selection-start-line="186" selection-start-column="66" selection-end-line="186" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -2104,37 +2186,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="186" column="66" selection-start-line="186" selection-start-column="66" selection-end-line="186" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-49.827587">
           <caret line="85" column="36" selection-start-line="85" selection-start-column="36" selection-end-line="85" selection-end-column="36" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/currentmatch.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/currentmatch.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="460" column="38" selection-start-line="460" selection-start-column="38" selection-end-line="460" selection-end-column="38" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="47" selection-start-line="50" selection-start-column="3" selection-end-line="52" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2142,7 +2222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2155,14 +2234,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/comp_page.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compPage.java">
@@ -2175,28 +2254,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0">
-          <caret line="364" column="30" selection-start-line="364" selection-start-column="30" selection-end-line="364" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="211" column="44" selection-start-line="211" selection-start-column="44" selection-end-line="211" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32235703">
+        <state vertical-scroll-proportion="0.0">
           <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
           <folding />
         </state>
@@ -2204,20 +2264,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44194108">
+        <state vertical-scroll-proportion="0.0">
           <caret line="109" column="65" selection-start-line="109" selection-start-column="65" selection-end-line="109" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detailed_ranked.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="364" column="30" selection-start-line="364" selection-start-column="30" selection-end-line="364" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/detailedRankedPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6753472">
+          <caret line="211" column="44" selection-start-line="211" selection-start-column="44" selection-end-line="211" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/compare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="85" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.4982639">
+          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
           </folding>
         </state>
       </provider>

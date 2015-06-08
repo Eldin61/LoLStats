@@ -6,7 +6,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.robrua.orianna.api.dto.BaseRiotAPI;
+import com.robrua.orianna.api.dto.MatchAPI;
 import com.robrua.orianna.type.core.common.Region;
+import com.robrua.orianna.type.dto.matchhistory.MatchSummary;
+import com.robrua.orianna.type.dto.matchhistory.PlayerHistory;
 import com.robrua.orianna.type.dto.stats.ChampionStats;
 import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
@@ -64,6 +67,33 @@ public class compare extends AsyncTask<Void, Void, Void> {
             }
 
         } catch (APIException e){
+            e.printStackTrace();
+        }
+
+        try {
+            BaseRiotAPI.setRegion(Region.EUW);
+            BaseRiotAPI.setMirror(Region.EUW);
+            BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
+
+            Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
+            String lCase = sName.toLowerCase();
+            String sumName = lCase.replaceAll("\\s+", "");
+
+            Summoner s = summoners.get(sumName);
+
+            long id = s.getId();
+
+            PlayerHistory p = BaseRiotAPI.getMatchHistory(id);
+            List<MatchSummary> matches = p.getMatches();
+
+
+
+            for (int i = 0; i < matches.size(); i++){
+                Log.d("match", matches.get(i).getQueueType());
+            }
+            Log.d("history", p + "");
+
+        }catch (APIException e){
             e.printStackTrace();
         }
         return null;
