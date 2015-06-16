@@ -62,8 +62,8 @@ public class detailedRank extends AsyncTask<Void, Void, Void>{
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            BaseRiotAPI.setRegion(Region.EUW);
-            BaseRiotAPI.setMirror(Region.EUW);
+            BaseRiotAPI.setRegion(Region.NA);
+            BaseRiotAPI.setMirror(Region.NA);
             BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
