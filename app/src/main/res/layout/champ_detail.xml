@@ -47,10 +47,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/passivename"
+                android:textStyle="bold"
                 android:text="passive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -58,6 +60,7 @@
             <TextView
                 android:id="@+id/passive"
                 android:text="passivedescription"
+                android:textSize="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -66,17 +69,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/qname"
                 android:text="Q spell"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/qdescription"
                 android:text="q description"
+                android:textSize="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -87,17 +93,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/wname"
                 android:text="W spell"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/wdescription"
                 android:text="w description"
+                android:textSize="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -108,17 +117,20 @@
          <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
+             android:paddingBottom="7dp"
              android:orientation="vertical">
 
              <TextView
                  android:id="@+id/ename"
                  android:text="E spell"
+                 android:textStyle="bold"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
 
              <TextView
                  android:id="@+id/edescription"
                  android:text="E description"
+                 android:textSize="10sp"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
 
@@ -133,12 +145,14 @@
             <TextView
                 android:id="@+id/rname"
                 android:text="R spell"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
               <TextView
                   android:id="@+id/rdescription"
                   android:text="R description"
+                  android:textSize="10sp"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content" />
 

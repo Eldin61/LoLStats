@@ -43,19 +43,19 @@ public class champDetailPage extends ActionBarActivity {
 
         //champ skills
         TextView tvCpassive = (TextView)findViewById(R.id.passivename);
-        tvCpassive.setText(champPassive);
+        tvCpassive.setText("Passive " + champPassive);
 
         TextView tvQname = (TextView)findViewById(R.id.qname);
-        tvQname.setText(champQ);
+        tvQname.setText("Q -" + champQ);
 
         TextView tvWname = (TextView)findViewById(R.id.wname);
-        tvWname.setText(champW);
+        tvWname.setText("W -" + champW);
 
         TextView tvEname = (TextView)findViewById(R.id.ename);
-        tvEname.setText(champE);
+        tvEname.setText("E -" + champE);
 
         TextView tvRname = (TextView)findViewById(R.id.rname);
-        tvRname.setText(champR);
+        tvRname.setText("R -" + champR);
 
         //champ skill descriptions
         TextView tvPassivedescr = (TextView)findViewById(R.id.passive);
