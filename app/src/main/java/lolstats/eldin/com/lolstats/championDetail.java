@@ -30,8 +30,16 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
     String champTitle;
     Passive champPassive;
     List<ChampionSpell> champSpells = new ArrayList<>();
-    String bloom;
-    double moeder;
+    String pName;
+    String pDescr;
+    String qSpell;
+    String qDescr;
+    String wSpell;
+    String wDescr;
+    String eSpell;
+    String eDescr;
+    String rSpell;
+    String rDescr;
 
     public championDetail(Activity a){o = a;}
 
@@ -58,12 +66,24 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
             champTitle = champions.get(sentId).getTitle();
             champPassive = champions.get(sentId).getPassive();
             champSpells = champions.get(sentId).getSpells();
-            bloom = champPassive + "";
-            String niek = "eldin";
+
+            pName = champPassive.getName();
+            pDescr = champPassive.getDescription();
+            qSpell = champSpells.get(0).getName();
+            wSpell = champSpells.get(1).getName();
+            eSpell = champSpells.get(2).getName();
+            rSpell = champSpells.get(3).getName();
+            qDescr = champSpells.get(0).getDescription();
+            wDescr = champSpells.get(1).getDescription();
+            eDescr = champSpells.get(2).getDescription();
+            rDescr = champSpells.get(3).getDescription();
+
+            for (int i= 0; i < champSpells.size(); i++){
+                Log.d("sd", champSpells.get(i).getName() + " " + champSpells.get(i).getDescription());
+            }
 
             Log.d("Test champid", champions.get(sentId).getName()  + ".");
             Log.d("Test title", champions.get(sentId).getTitle() + ".");
-            Log.d("Test spell", champions.get(sentId).getSpells() + ".");
 
         }catch (APIException e){
             Log.d("apiex", "apiex");
@@ -83,7 +103,19 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
         Intent intent = new Intent(o, champDetailPage.class);
         intent.putExtra("ChampionName", champName);
         intent.putExtra("ChampionTitle", champTitle);
-        intent.putExtra("ChampionPassive", bloom);
+        intent.putExtra("ChampionPassiveName", pName);
+        intent.putExtra("ChampionPassiveDescr", pDescr);
+
+        intent.putExtra("ChampionQname", qSpell);
+        intent.putExtra("ChampionWname", wSpell);
+        intent.putExtra("ChampionEname", eSpell);
+        intent.putExtra("ChampionRname", rSpell);
+
+        intent.putExtra("ChampionQdescr", qDescr);
+        intent.putExtra("ChampionWdescr", wDescr);
+        intent.putExtra("ChampionEdescr", eDescr);
+        intent.putExtra("ChampionRdescr", rDescr);
+
 
         o.startActivity(intent);
     }
