@@ -15,8 +15,8 @@ public class Connect {
     String sLevel;
 
     public void connectRiot(){
-        AsyncRiotAPI.setRegion(Region.EUW);
-        AsyncRiotAPI.setMirror(Region.EUW);
+        AsyncRiotAPI.setRegion(Region.NA);
+        AsyncRiotAPI.setMirror(Region.NA);
         AsyncRiotAPI.setAPIKey("445757e6-c061-4cd3-8216-28d92481d8ed");
     }
 

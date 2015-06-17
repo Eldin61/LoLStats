@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/grey_font"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:elevation="3dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Summoner1 VS summoner2"
+            android:gravity="center_horizontal"
+            android:textSize="15sp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:elevation="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight=".5"
+                android:weightSum="1.0">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="50%"
+                    android:id="@+id/perc1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/red"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="50%"
+                    android:id="@+id/perc2"
+                    android:gravity="end"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightBlue"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
+</ScrollView>
