@@ -35,11 +35,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d678d6df-ec7d-49a6-ab1c-3e90495e31df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatchPage.java" afterPath="$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatchPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/current_match_design.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LoLStats.iws" />
@@ -72,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.62738097">
-              <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
+              <caret line="173" column="72" selection-start-line="173" selection-start-column="72" selection-end-line="173" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -1983,7 +1978,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434483452192</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dfgdfgdf">
+      <created>1434616635999</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1434616635999</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2523,7 +2524,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/lolstats/eldin/com/lolstats/currentMatch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62738097">
-          <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
+          <caret line="173" column="72" selection-start-line="173" selection-start-column="72" selection-end-line="173" selection-end-column="72" />
           <folding />
         </state>
       </provider>
