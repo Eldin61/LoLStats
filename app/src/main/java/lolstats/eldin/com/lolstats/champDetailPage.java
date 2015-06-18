@@ -73,6 +73,8 @@ public class champDetailPage extends ActionBarActivity {
         TextView tvRdescr = (TextView)findViewById(R.id.rdescription);
         tvRdescr.setText(rDescr);
 
+        String d;
+
     }
 
    /** @Override
