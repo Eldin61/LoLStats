@@ -22,6 +22,7 @@ import com.robrua.orianna.type.dto.staticdata.ChampionList;
 import com.robrua.orianna.type.dto.staticdata.MasteryList;
 import com.robrua.orianna.type.dto.staticdata.RuneList;
 import com.robrua.orianna.type.dto.staticdata.SummonerSpellList;
+import com.robrua.orianna.type.dto.stats.ChampionStats;
 import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
@@ -43,6 +44,12 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     ArrayList<String> Divs = new ArrayList<>();
     ArrayList<Long> SummonerSpell1 = new ArrayList<>();
     ArrayList<Long> SummonerSpell2 = new ArrayList<>();
+
+    ArrayList<String> SummonerGames = new ArrayList<>();
+    ArrayList<String> SummonerKills = new ArrayList<>();
+    ArrayList<String> SummonerDeaths = new ArrayList<>();
+    ArrayList<String> SummonerAssists = new ArrayList<>();
+
     Double blueKans;
 
     public boolean sFound;
@@ -128,7 +135,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
                 List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
 
-
+                List<ChampionStats> r = BaseRiotAPI.getRankedStats(sd).getChampions();
             // hier word het wat lastiger
             // deze loop gaat door de list heen van alle participants, elke participant pakt die dus de naam, id en masteries
             for (int i = 0; i < p.size(); i++) {
@@ -147,6 +154,14 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 Champpicks.add(chosenchamp);
                 SummonerSpell1.add(sums1);
                 SummonerSpell2.add(sums2);
+//                String games = r.get(i).getStats().getTotalSessionsPlayed().toString();
+//                String kills = r.get(i).getStats().getAverageChampionsKilled().toString();
+//                String deaths = r.get(i).getStats().getAverageNumDeaths().toString();
+//                String assists = r.get(i).getStats().getAverageAssists().toString();
+//                SummonerKills.add(kills);
+//                SummonerGames.add(games);
+//                SummonerDeaths.add(deaths);
+//                SummonerAssists.add(assists);
                 //lijst met current game masteries
                 List<Mastery> g = p.get(i).getMasteries();
 
