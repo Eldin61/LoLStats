@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_font"
     >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -26,11 +27,12 @@
             android:layout_height="wrap_content"
             android:text="Summoner1 VS summoner2"
             android:gravity="center_horizontal"
-            android:textSize="15sp"/>
+            android:textSize="18sp"
+            android:id="@+id/vs"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
         android:layout_marginTop="5dp"
@@ -45,26 +47,334 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_weight=".5"
+                android:layout_weight=".35"
                 android:weightSum="1.0">
                 <TextView
                     android:layout_width="match_parent"
                     android:text="50%"
                     android:id="@+id/perc1"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="30"
+                    android:id="@+id/total1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="20"
+                    android:id="@+id/won1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="10"
+                    android:id="@+id/lost1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2342412"
+                    android:id="@+id/totalGold1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="234"
+                    android:id="@+id/minions1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="234"
+                    android:id="@+id/neutral1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/kills1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/assists1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/deaths1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/penta1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/quadra1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/triple1"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/double1"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight=".3">
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/red"/>
+                    android:text="VS"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Games"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Won"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lost"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Earnings"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Gold"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Minions"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Neutral"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Combat stats"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kills"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assists"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deaths"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Penta"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quadra"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Triple"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Double"
+                    android:gravity="center_horizontal"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".5">
+                android:layout_weight=".35"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:text="50%"
                     android:id="@+id/perc2"
                     android:gravity="end"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="30"
+                    android:id="@+id/total2"
                     android:layout_height="wrap_content"
-                    android:background="@color/lightBlue"/>
+                    android:gravity="end"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="20"
+                    android:id="@+id/won2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="10"
+                    android:id="@+id/lost2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="23423154"
+                    android:id="@+id/totalGold2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="234"
+                    android:id="@+id/minions2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="234"
+                    android:id="@+id/neutral2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text=""
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/kills2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/assists2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/deaths2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/penta2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/quadra2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/triple2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="2343"
+                    android:id="@+id/double2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"/>
 
             </LinearLayout>
 
