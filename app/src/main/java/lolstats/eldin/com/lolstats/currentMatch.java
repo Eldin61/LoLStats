@@ -27,6 +27,7 @@ import com.robrua.orianna.type.dto.summoner.Summoner;
 import com.robrua.orianna.type.exception.APIException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     ArrayList<String> SummonerAssists = new ArrayList<>();
 
     Double blueKans;
+    String[] sortedChamps;
 
     public boolean sFound;
 
@@ -115,16 +117,37 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             ChampionList champs = BaseRiotAPI.getChampions();
             Champion testchampname = BaseRiotAPI.getChampion(89);
-            String test = testchampname.getName();
+            //String test = testchampname.getName();
             List<Champion> champions = new ArrayList<>(champs.getData().values());
-            //Log.d("Test champid", champions.get(39).getName() + ".");
+            String[] nrOfChamps = new String[champions.size()];
+            Log.d("Test champid", champions.get(79).getName() + " " + nrOfChamps.length + ".");
+            Log.d("Test title", champions.get(79).getTitle() + ".");
+            Log.d("Test key", champions.get(79).getKey() + ".");
+            Log.d("Test spell", champions.get(79).getSpells() + ".");
+
+
+            for(int x = 0; x < nrOfChamps.length; x++){
+                nrOfChamps [x] = champions.get(x).getName();
+                Log.d("Champ nr + name: ", x + " " + nrOfChamps[x]);
+                if(x == nrOfChamps.length - 1){
+                    Log.d("Array to string test: ", Arrays.toString(nrOfChamps));
+                    Arrays.sort(nrOfChamps);
+                    sortedChamps = nrOfChamps;
+
+                }
+            }
+            Log.d("Array sorted ", Arrays.toString(sortedChamps));
+
+
+
+
 
 //            int all = champions.size();
 //            for(int x = 1; x < all; x++) {
 //                if (x == all) {
 //                    break;
 //                } else {
-//                    Log.d("Test 2 ", x + " " + "Champy " + test + " " + champions.get(x).getName() + ".");
+//                    Log.d("Test 2 ", x + "  " + champions.get(x).getName() + ".");
 //
 //                }
 //            }

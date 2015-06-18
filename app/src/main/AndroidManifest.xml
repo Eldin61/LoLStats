@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="lolstats.eldin.com.lolstats" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            >
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,32 +17,40 @@
         </activity>
         <activity
             android:name=".OverviewPage"
-            android:parentActivityName="lolstats.eldin.com.lolstats.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lolstats.eldin.com.lolstats.MainActivity" />
         </activity>
         <activity
             android:name=".currentMatchPage"
-            android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
+            android:parentActivityName=".OverviewPage" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lolstats.eldin.com.lolstats.OverviewPage" />
-        </activity><activity
-        android:name=".detailedRankedPage"
-        android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="lolstats.eldin.com.lolstats.OverviewPage" />
-    </activity>
+        </activity>
+        <activity
+            android:name=".detailedRankedPage"
+            android:parentActivityName=".OverviewPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lolstats.eldin.com.lolstats.OverviewPage" />
+        </activity>
         <activity
             android:name=".compPage"
-            android:parentActivityName="lolstats.eldin.com.lolstats.OverviewPage" >
+            android:parentActivityName=".OverviewPage" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="lolstats.eldin.com.lolstats.detailedRankedPage" />
         </activity>
-
+        <activity
+            android:name=".championsPage"
+            android:label="@string/title_activity_champions_page" >
+        </activity>
+        <activity
+            android:name=".champDetailPage"
+            android:label="@string/title_activity_champ_detail_page" >
+        </activity>
     </application>
 
 </manifest>

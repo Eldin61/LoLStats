@@ -1,0 +1,172 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="lolstats.eldin.com.lolstats.champDetailPage">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/champname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/champtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/champname"
+                android:layout_alignParentRight="true"
+                android:text="title"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/passivename"
+                android:textStyle="bold"
+                android:text="passive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/passive"
+                android:text="passivedescription"
+                android:textSize="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/qname"
+                android:text="Q spell"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/qdescription"
+                android:text="q description"
+                android:textSize="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="7dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/wname"
+                android:text="W spell"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/wdescription"
+                android:text="w description"
+                android:textSize="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:paddingBottom="7dp"
+             android:orientation="vertical">
+
+             <TextView
+                 android:id="@+id/ename"
+                 android:text="E spell"
+                 android:textStyle="bold"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+
+             <TextView
+                 android:id="@+id/edescription"
+                 android:text="E description"
+                 android:textSize="10sp"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+
+
+         </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rname"
+                android:text="R spell"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+              <TextView
+                  android:id="@+id/rdescription"
+                  android:text="R description"
+                  android:textSize="10sp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -39,4 +39,8 @@
     <string name="title">LoLStats</string>
     <string name="openDrawer">Open Drawer</string>
     <string name="closeDrawer">Close Drawer</string>
+    <string name="title_activity_champions_page">championsPage</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_champ_detail_page">champDetailPage</string>
 </resources>

@@ -38,10 +38,15 @@ public class OverviewPage extends ActionBarActivity {
         new currentMatch(OverviewPage.this).execute();
     }
 
+    private void startChamplist(){
+        champions c = new champions(OverviewPage.this);
+        new champions(OverviewPage.this).execute();
+    }
+
     //First We Declare Titles And Icons For Our Navigation Drawer List View
     //This Icons And Titles Are holded in an Array as you can see
 
-    String TITLES[] = {"New Summoner","Detailed Ranked","Current Match","Overview","blabla"};
+    String TITLES[] = {"New Summoner","Detailed Ranked","Current Match","Overview","Champions"};
     int ICONS[] = {R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action};
 
     //Similarly we Create a String Resource for the name and email in the header view
@@ -240,6 +245,9 @@ public class OverviewPage extends ActionBarActivity {
                     }
                     if(recyclerView.getChildPosition(child) == 3){
                         startSeq();
+                    }
+                    if(recyclerView.getChildPosition(child) == 5){
+                        startChamplist();
                     }
                     return true;
 
