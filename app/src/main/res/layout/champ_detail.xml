@@ -16,22 +16,36 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/champicon"
+                android:src="@drawable/aatrox"
+                android:layout_alignParentLeft="true"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                />
 
             <TextView
                 android:id="@+id/champname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="name"
-                android:layout_alignParentRight="true"/>
+                android:textSize="30dp"
+                android:layout_toRightOf="@+id/champicon"
+                android:layout_marginLeft="20sp" />
 
             <TextView
                 android:id="@+id/champtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/champname"
-                android:layout_alignParentRight="true"
-                android:text="title"/>
+                android:layout_toRightOf="@+id/champicon"
+                android:layout_marginLeft="20sp"
+                android:text="title"
+                android:textSize="20dp"
+                android:textStyle="italic"/>
 
         </RelativeLayout>
 
@@ -39,9 +53,25 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Skills"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/skillsborder"
+        android:visibility="visible"
+        android:background="@color/ColorPrimary"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -61,6 +91,7 @@
                 android:id="@+id/passive"
                 android:text="passivedescription"
                 android:textSize="10sp"
+                android:textStyle="italic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -83,6 +114,7 @@
                 android:id="@+id/qdescription"
                 android:text="q description"
                 android:textSize="10sp"
+                android:textStyle="italic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -107,6 +139,7 @@
                 android:id="@+id/wdescription"
                 android:text="w description"
                 android:textSize="10sp"
+                android:textStyle="italic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -131,6 +164,7 @@
                  android:id="@+id/edescription"
                  android:text="E description"
                  android:textSize="10sp"
+                 android:textStyle="italic"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" />
 
