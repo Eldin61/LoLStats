@@ -51,6 +51,13 @@
             android:name=".champDetailPage"
             android:label="@string/title_activity_champ_detail_page" >
         </activity>
+        <activity
+            android:name=".MatchHistoryPage"
+            android:parentActivityName=".OverviewPage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lolstats.eldin.com.lolstats.OverviewPage" />
+        </activity>
     </application>
 
 </manifest>

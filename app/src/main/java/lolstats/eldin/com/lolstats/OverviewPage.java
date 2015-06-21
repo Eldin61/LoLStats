@@ -43,11 +43,20 @@ public class OverviewPage extends ActionBarActivity {
         new champions(OverviewPage.this).execute();
     }
 
+    private void startMatchHistory(){
+        TextView tv = (TextView) findViewById(R.id.test);
+        MatchHistory m = new MatchHistory();
+        m.sName = tv.getText().toString();
+        new MatchHistory().execute();
+        Intent i = new Intent(OverviewPage.this, MatchHistoryPage.class);
+        OverviewPage.this.startActivity(i);
+    }
+
     //First We Declare Titles And Icons For Our Navigation Drawer List View
     //This Icons And Titles Are holded in an Array as you can see
 
-    String TITLES[] = {"New Summoner","Detailed Ranked","Current Match","Overview","Champions"};
-    int ICONS[] = {R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action};
+    String TITLES[] = {"New Summoner","Detailed Ranked","Current Match","Overview","Champions", "Match history"};
+    int ICONS[] = {R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action,R.drawable.ic_action};
 
     //Similarly we Create a String Resource for the name and email in the header view
     //And we also create a int resource for profile picture in the header view
@@ -248,6 +257,9 @@ public class OverviewPage extends ActionBarActivity {
                     }
                     if(recyclerView.getChildPosition(child) == 5){
                         startChamplist();
+                    }
+                    if(recyclerView.getChildPosition(child) == 6){
+                        startMatchHistory();
                     }
                     return true;
 

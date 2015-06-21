@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\classes-f065075a33ed40b785f32ddc40b85beecad111f3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\classes-beecece10a9254ebd37e10e376d8fda091e5558b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-638ec8f2fd5518a6684bb4747ab0fa893790ec36.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\classes-5bc0210d0ad769d1f2e09c7674548805ded59fcf.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-49afa677ce43ef45a24d7d45ad7b95a2e02c734d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\classes-865502383a7eaa06a9331e610c101bc0607217b9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Eldin\Desktop\LoLStats\app\libs\orianna-android-2.2.7.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e54ff26abfc227355aaa36931645ba567bcd69bc">
+        <dex dex="C:\Users\Eldin\Desktop\LoLStats\app\build\intermediates\pre-dexed\debug\orianna-android-2.2.7-2623984f4ef94afdcb69f110214346765a1cb1fe.jar" />
+    </item>
+
+</items>
