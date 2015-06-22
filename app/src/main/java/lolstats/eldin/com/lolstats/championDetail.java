@@ -3,6 +3,7 @@ package lolstats.eldin.com.lolstats;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -40,6 +41,7 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
     String eDescr;
     String rSpell;
     String rDescr;
+    com.robrua.orianna.type.dto.staticdata.Image i;
 
     public championDetail(Activity a){o = a;}
 
@@ -77,6 +79,8 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
             wDescr = champSpells.get(1).getDescription();
             eDescr = champSpells.get(2).getDescription();
             rDescr = champSpells.get(3).getDescription();
+
+            i = champions.get(sentId).getImage();
 
             for (int i= 0; i < champSpells.size(); i++){
                 Log.d("sd", champSpells.get(i).getName() + " " + champSpells.get(i).getDescription());

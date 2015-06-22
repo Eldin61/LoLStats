@@ -1,9 +1,14 @@
 package lolstats.eldin.com.lolstats;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.robrua.orianna.type.dto.staticdata.Passive;
@@ -37,6 +42,13 @@ public class champDetailPage extends ActionBarActivity {
         //naam en titel van champ
         TextView tvCname = (TextView)findViewById(R.id.champname);
         tvCname.setText(champName);
+        String lCaseIcon = champName.toLowerCase();
+
+        ImageView v = (ImageView)findViewById(R.id.champicon);
+        Context context = v.getContext();
+        int id = context.getResources().getIdentifier(lCaseIcon, "drawable", context.getPackageName());
+        v.setImageResource(id);
+        Log.d("champname", champName);
 
         TextView tvCtitle = (TextView)findViewById(R.id.champtitle);
         tvCtitle.setText(champTitle);
