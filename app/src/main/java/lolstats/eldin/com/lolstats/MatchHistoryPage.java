@@ -44,10 +44,10 @@ public class MatchHistoryPage extends ActionBarActivity {
 
     private void createData(){
         m = new ArrayList<>();
-        m.add(new Match("10", "2"));
-        m.add(new Match("10", "3"));
-        m.add(new Match("10", "4"));
-        m.add(new Match("10", "5"));
+        m.add(new Match("10", "2", "loss"));
+        m.add(new Match("10", "3", "loss"));
+        m.add(new Match("10", "4", "loss"));
+        m.add(new Match("10", "5", "win"));
     }
 
 }

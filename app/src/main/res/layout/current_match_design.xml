@@ -110,27 +110,28 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="KDA"
+                                android:id="@+id/KDA1"
                                 android:gravity="center_horizontal"
                                 android:layout_gravity="center_vertical"
                                 />
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_marginLeft="5dp">
+                            <!--<LinearLayout-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:orientation="vertical"-->
+                                <!--android:layout_marginLeft="5dp">-->
 
-                                <Button
-                                    android:layout_width="108dp"
-                                    android:layout_height="35dp"
-                                    android:text="Runes"/>
+                                <!--<Button-->
+                                    <!--android:layout_width="108dp"-->
+                                    <!--android:layout_height="35dp"-->
+                                    <!--android:text="Runes"/>-->
 
-                                <Button
-                                    android:layout_width="110dp"
-                                    android:layout_height="35dp"
-                                    android:text="Masteries"/>
+                                <!--<Button-->
+                                    <!--android:layout_width="110dp"-->
+                                    <!--android:layout_height="35dp"-->
+                                    <!--android:text="Masteries"/>-->
 
 
-                            </LinearLayout>
+                            <!--</LinearLayout>-->
 
                         </LinearLayout>
                     </RelativeLayout>
@@ -213,27 +214,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA2"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -316,27 +318,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA3"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -419,27 +422,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA4"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -522,27 +526,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA5"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -625,27 +630,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA6"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -728,27 +734,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA7"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -831,27 +838,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA8"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -934,27 +942,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA9"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>
@@ -1037,27 +1046,28 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="KDA"
+                                    android:id="@+id/KDA10"
                                     android:gravity="center_horizontal"
                                     android:layout_gravity="center_vertical"
                                     />
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical"
-                                    android:layout_marginLeft="5dp">
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:orientation="vertical"-->
+                                    <!--android:layout_marginLeft="5dp">-->
 
-                                    <Button
-                                        android:layout_width="108dp"
-                                        android:layout_height="35dp"
-                                        android:text="Runes"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="108dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Runes"/>-->
 
-                                    <Button
-                                        android:layout_width="110dp"
-                                        android:layout_height="35dp"
-                                        android:text="Masteries"/>
+                                    <!--<Button-->
+                                        <!--android:layout_width="110dp"-->
+                                        <!--android:layout_height="35dp"-->
+                                        <!--android:text="Masteries"/>-->
 
 
-                                </LinearLayout>
+                                <!--</LinearLayout>-->
 
                             </LinearLayout>
                         </RelativeLayout>

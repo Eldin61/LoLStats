@@ -6,9 +6,11 @@ package lolstats.eldin.com.lolstats;
 public class Match {
     String kills;
     String deaths;
+    String outcome;
 
-    Match(String kills, String deaths){
+    Match(String kills, String deaths, String outcome){
         this.kills = kills;
         this.deaths = deaths;
+        this.outcome = outcome;
     }
 }

@@ -117,7 +117,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             ChampionList champs = BaseRiotAPI.getChampions();
             Champion testchampname = BaseRiotAPI.getChampion(89);
-            //String test = testchampname.getName();
+            String test = testchampname.getName();
             List<Champion> champions = new ArrayList<>(champs.getData().values());
             String[] nrOfChamps = new String[champions.size()];
             Log.d("Test champid", champions.get(79).getName() + " " + nrOfChamps.length + ".");
@@ -128,9 +128,9 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             for(int x = 0; x < nrOfChamps.length; x++){
                 nrOfChamps [x] = champions.get(x).getName();
-                Log.d("Champ nr + name: ", x + " " + nrOfChamps[x]);
+               // Log.d("Champ nr + name: ", x + " " + nrOfChamps[x]);
                 if(x == nrOfChamps.length - 1){
-                    Log.d("Array to string test: ", Arrays.toString(nrOfChamps));
+                   // Log.d("Array to string test: ", Arrays.toString(nrOfChamps));
                     Arrays.sort(nrOfChamps);
                     sortedChamps = nrOfChamps;
 
@@ -177,16 +177,23 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 Champpicks.add(chosenchamp);
                 SummonerSpell1.add(sums1);
                 SummonerSpell2.add(sums2);
-//                String games = r.get(i).getStats().getTotalSessionsPlayed().toString();
-//                String kills = r.get(i).getStats().getAverageChampionsKilled().toString();
-//                String deaths = r.get(i).getStats().getAverageNumDeaths().toString();
-//                String assists = r.get(i).getStats().getAverageAssists().toString();
-//                SummonerKills.add(kills);
-//                SummonerGames.add(games);
-//                SummonerDeaths.add(deaths);
-//                SummonerAssists.add(assists);
+
+                int games = r.get(i).getStats().getTotalSessionsPlayed();
+                int kills = r.get(i).getStats().getTotalChampionKills();
+                int deaths = r.get(i).getStats().getTotalDeathsPerSession();
+                int assists = r.get(i).getStats().getTotalAssists();
+
+                String avgKills = kda(games, kills);
+                String avgDeaths = kda(games, deaths);
+                String avgAssists = kda(games, assists);
+
+//                int cel = ((games + assists) / deaths)/games;
+//                String kda = cel + "";
+                SummonerKills.add(avgKills);
+                SummonerDeaths.add(avgDeaths);
+                SummonerAssists.add(avgAssists);
                 //lijst met current game masteries
-                List<Mastery> g = p.get(i).getMasteries();
+               // List<Mastery> g = p.get(i).getMasteries();
 
                 // deze loop gaat door de list heen van current game masteries en pakt de mastery id's
 //                for (int z = 0; z < g.size(); z++) {
@@ -231,7 +238,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
                 if (team == 100) {
                     blueScore += (int)getdMap(div);
-                    Log.d("Blue team", pName + " as  " + chosenchamp + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + blueScore);
+                    Log.d("Blue team", pName + " as  " + chosenchamp + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + blueScore + " " + games  + " "+ avgKills  + " "+ avgDeaths + " " + avgAssists);
                 } else {
                     Log.d("Red team", pName + " as  " + chosenchamp + " " + div + " "+ sums1 + " " + sums2 + " " + getdMap(div) + redScore);
                     redScore += (int)getdMap(div);
@@ -265,6 +272,10 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             intent.putStringArrayListExtra("SummonerNames", Summoners);
             intent.putStringArrayListExtra("Picks", Champpicks);
             intent.putStringArrayListExtra("Divisions", Divs);
+            intent.putStringArrayListExtra("Kills", SummonerKills);
+            intent.putStringArrayListExtra("Deaths", SummonerDeaths);
+            intent.putStringArrayListExtra("Assists", SummonerAssists);
+
 
             intent.putExtra("blueKans", blueKans);
 
@@ -403,5 +414,15 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
         diff = a - b;
         diff = diff * 1.5;
         return 50 + diff;
+    }
+    public String kda(int games, int data){
+        String x;
+        try{
+             x = data / games + "";
+        }
+        catch (Exception e){
+             x = "0";
+        }
+        return x;
     }
 }

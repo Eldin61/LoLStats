@@ -23,6 +23,13 @@ import java.util.Map;
 public class MatchHistory extends AsyncTask<Void, Void, Void> {
     static String sName;
     String userName;
+    String typeMatch;
+    String kills;
+    String deaths;
+    String assists;
+    String gold;
+    String minions;
+    List<Match> data;
 
     @Override
     protected Void doInBackground(Void... params) {
@@ -53,13 +60,18 @@ public class MatchHistory extends AsyncTask<Void, Void, Void> {
                     }
                 }
             }*/
-
+            data = new ArrayList<>();
         List<Game> g = BaseRiotAPI.getRecentGames(sd).getGames();
             for (int i = 0; i < g.size(); i++){
                 RawStats r = g.get(i).getStats();
                 Log.d("win/loss", r.getWin() + " " + g.get(i).getSubType() + " K/D/A: " + r.getChampionsKilled() + "/" + r.getNumDeaths() + "/" + r.getAssists() );
+                boolean win = r.getWin();
+                if (!win){
+                    data.add(new Match(r.getChampionsKilled() + "", r.getNumDeaths() + "", "Loss"));
+                } else {
+                    data.add(new Match(r.getChampionsKilled() + "", r.getNumDeaths() + "", "Win"));
+                }
             }
-
         } catch (APIException e){
             e.printStackTrace();
         }
@@ -67,5 +79,6 @@ public class MatchHistory extends AsyncTask<Void, Void, Void> {
     }
     @Override
     protected void onPostExecute(Void unused){
+
     }
 }
