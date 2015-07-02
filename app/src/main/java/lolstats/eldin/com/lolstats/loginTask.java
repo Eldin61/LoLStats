@@ -44,10 +44,12 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     String teamWins;
     String threeWins;
     ProgressDialog p;
+    static String region1;
 
     String avgKill;
     String avgAssist;
     String avgDeaths;
+    Region reg;
 
     Activity mActivity;
 
@@ -58,6 +60,21 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     public String getName(String input){
         sName = input;
         return sName;
+    }
+
+    public void setRegion(String region){
+        if(region.contains("NA")){
+            reg = Region.NA;
+            region1 = "NA";
+        } else if (region.contains("EUW")){
+            reg = Region.EUW;
+            region1 = "EUW";
+        } else {
+            reg = Region.EUNE;
+            region1 = "EUNE";
+        }
+        region1 = region;
+        Log.d("regio", region);
     }
 
     public boolean sFound;
@@ -87,8 +104,17 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            BaseRiotAPI.setMirror(Region.NA);
-            BaseRiotAPI.setRegion(Region.NA);
+            if(region1.contains("NA")){
+                BaseRiotAPI.setMirror(Region.NA);
+                BaseRiotAPI.setRegion(Region.NA);
+            } else if (region1.contains("EUW")){
+                BaseRiotAPI.setMirror(Region.EUW);
+                BaseRiotAPI.setRegion(Region.EUW);
+            } else {
+                BaseRiotAPI.setMirror(Region.EUNE);
+                BaseRiotAPI.setRegion(Region.EUNE);
+            }
+
             BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             Map<String, Summoner> summoners = BaseRiotAPI.getSummonersByName(sName);
@@ -169,6 +195,7 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
             intent.putExtra("soloWin", soloWins);
             intent.putExtra("teamWin", teamWins);
             intent.putExtra("threeWin", threeWins);
+            intent.putExtra("region", region1);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mActivity.startActivity(intent);
         } else {

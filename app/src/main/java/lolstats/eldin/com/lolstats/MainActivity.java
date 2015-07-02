@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
     String s;
+    String region;
 
     public void login(View w){
         EditText etName = (EditText) findViewById(R.id.etName);
@@ -29,15 +30,27 @@ public class MainActivity extends ActionBarActivity {
         savePref();
         loginTask l = new loginTask(MainActivity.this);
         l.getName(s);
+        l.setRegion(region);
         testMethod();
     }
 
+    public void naRegion(View w){
+        region = "NA";
+    }
+
+    public void euwRegion(View w){
+        region = "EUW";
+    }
+    public void euneRegion(View w){
+        region = "EUNE";
+    }
 
     public void logPref(View w){
             TextView etName = (TextView) findViewById(R.id.prefName);
             s = etName.getText().toString();
         loginTask l = new loginTask(MainActivity.this);
         l.getName(s);
+        l.setRegion(region);
             testMethod();
     }
 

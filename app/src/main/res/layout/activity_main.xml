@@ -29,6 +29,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
             <EditText
                 android:layout_width="250dp"
@@ -48,6 +52,42 @@
                 android:textColor="@color/white"
                 android:onClick="login"/>
 
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/white"
+                        android:layout_marginRight="30dp"
+                        android:text="NA"
+                        android:onClick="naRegion"
+                        />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/white"
+                        android:text="EUW"
+                        android:onClick="euwRegion"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:buttonTint="@color/white"
+                        android:layout_marginLeft="30dp"
+                        android:text="EUNE"
+                        android:onClick="euneRegion"/>
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
         <LinearLayout

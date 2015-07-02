@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.Toast;
  * Created by Eldin on 12-5-2015.
  */
 public class OverviewPage extends ActionBarActivity {
+
+    String region1;
 
     private void startRanked(){
         TextView tvS = (TextView) findViewById(R.id.test);
@@ -99,7 +102,9 @@ public class OverviewPage extends ActionBarActivity {
             soloWin = extras.getString("soloWin");
             teamWin = extras.getString("teamWin");
             threeWin = extras.getString("threeWin");
+            region1 = extras.getString("region");
         }
+
         ImageView v = (ImageView) findViewById(R.id.div1);
 
         if(soloDiv.contains("BRONZE")){
