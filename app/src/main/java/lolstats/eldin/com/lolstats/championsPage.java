@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 
 public class championsPage extends ActionBarActivity {
-    Activity c;
+
     public static int champId;
 
     @Override
@@ -27,8 +27,6 @@ public class championsPage extends ActionBarActivity {
         Bundle extras = getIntent().getExtras();
         String[] sortedChamps = extras.getStringArray("ChamplistSorted");
         final String[] unsortedChamps = extras.getStringArray("ChamplistUnsorted");
-        Log.d("Array sorted ", Arrays.toString(sortedChamps) + "");
-        Log.d("Array unsorted ", Arrays.toString(unsortedChamps) + "");
 
         //maakt listview
         ListAdapter champAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, sortedChamps);
@@ -47,23 +45,14 @@ public class championsPage extends ActionBarActivity {
                 //zoekt de naam van de gekozen champ en geeft bijbehorende positie in de array en dus id
                 champId = Arrays.asList(unsortedChamps).indexOf(championPicked);
 
-                Toast.makeText(championsPage.this, championPicked + " id: " + champId , Toast.LENGTH_SHORT).show();
-
                 sendChampId();
 
             }
         });
-
     }
 
     public void sendChampId(){new championDetail(championsPage.this).execute(); }
 
-    /**@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-       // getMenuInflater().inflate(R.menu.menu_champions_page, menu);
-        return true;
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -48,7 +48,7 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPreExecute(){
 
-        p = ProgressDialog.show(o, "Loading", "Retrieving and calculating data..", true);
+        p = ProgressDialog.show(o, "Loading", "Retrieving champion details..", true);
     }
 
     @Override
@@ -59,9 +59,6 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
             BaseRiotAPI.setAPIKey("ebe43318-cee4-4d2a-bf19-1c195a32aa93");
 
             ChampionList champs = BaseRiotAPI.getChampions();
-            //Champion testchampname = BaseRiotAPI.getChampion(89);
-            //String test = testchampname.getName();
-            //comment
             List<Champion> champions = new ArrayList<>(champs.getData().values());
 
             champName = champions.get(sentId).getName();
@@ -81,13 +78,6 @@ public class championDetail extends AsyncTask<Void, Void, Void> {
             rDescr = champSpells.get(3).getDescription();
 
             i = champions.get(sentId).getImage();
-
-            for (int i= 0; i < champSpells.size(); i++){
-                Log.d("sd", champSpells.get(i).getName() + " " + champSpells.get(i).getDescription());
-            }
-
-            Log.d("Test champid", champions.get(sentId).getName()  + ".");
-            Log.d("Test title", champions.get(sentId).getTitle() + ".");
 
         }catch (APIException e){
             Log.d("apiex", "apiex");
