@@ -58,24 +58,19 @@ public class MainActivity extends ActionBarActivity {
         new loginTask(MainActivity.this).execute();
     }
 
-    private Toolbar toolbar;                              // Declaring the Toolbar Object
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Assinging the toolbar object ot the view
-    and setting the the Action bar to our toolbar
-     */
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-
-
-
         View pref = findViewById(R.id.pref1);
 
+
+        //onafgemaakte loop. Negeer het voor nu.
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         String name;
         for(int i = 0; i < 10; i++){
@@ -113,7 +108,6 @@ public class MainActivity extends ActionBarActivity {
         Log.d("saved", "summoner " + test);
         value++;
 
-        // Commit the edits!
         editor.apply();
 
 
@@ -121,19 +115,14 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -143,9 +132,5 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onStop(){
         super.onStop();
-
-        // We need an Editor object to make preference changes.
-        // All objects are from android.context.Context
-
     }
 }

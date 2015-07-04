@@ -48,18 +48,6 @@ public class MatchHistory extends AsyncTask<Void, Void, Void> {
             userName = summoner.getName();
             long sd = summoner.getId();
 
-            /**List<MatchSummary> p = BaseRiotAPI.getMatchHistory(sd).getMatches();
-            List<Long> mId = new ArrayList<Long>();
-
-            for (int i = 0; i < p.size(); i++){
-                mId.add(p.get(i).getMatchId());
-                for (int m = 0; m < mId.size(); m++){
-                    long matchId = mId.get(m);
-                    if(m == i){
-                        BaseRiotAPI.getMatch(matchId)
-                    }
-                }
-            }*/
             data = new ArrayList<>();
         List<Game> g = BaseRiotAPI.getRecentGames(sd).getGames();
             for (int i = 0; i < g.size(); i++){

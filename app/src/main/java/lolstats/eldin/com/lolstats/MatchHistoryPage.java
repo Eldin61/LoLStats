@@ -27,15 +27,11 @@ public class MatchHistoryPage extends ActionBarActivity {
         setContentView(R.layout.match_history);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
         createData();
         mAdapter = new RecyclerAdapter(m);
         mRecyclerView.setAdapter(mAdapter);

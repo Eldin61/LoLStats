@@ -14,8 +14,6 @@ public class compPage extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.comp_page);
 
-        TextView tvVs = (TextView) findViewById(R.id.vs);
-        TextView tvPerc = (TextView) findViewById(R.id.perc1);
         TextView tvTotal = (TextView) findViewById(R.id.total1);
         TextView tvWin = (TextView) findViewById(R.id.won1);
         TextView tvLost = (TextView) findViewById(R.id.lost1);

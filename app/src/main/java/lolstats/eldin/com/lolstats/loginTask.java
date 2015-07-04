@@ -79,23 +79,6 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
 
     public boolean sFound;
 
-    private void champMap(){
-        Map<Long, String> cMap = new HashMap<Long, String>();
-        cMap.put(266L, "Aatrox");
-        cMap.put(412L, "Thresh");
-        cMap.put(23L, "Tryndamere");
-        cMap.put(79L, "Gragas");
-        cMap.put(69L, "Cassiopeia");
-        cMap.put(13L, "Ryze");
-        cMap.put(78L, "Poppy");
-        cMap.put(14L, "Sion");
-        cMap.put(1L, "Annie");
-        cMap.put(111L, "Nautilus");
-        cMap.put(43L, "Karma");
-        cMap.put(99L, "Lux");
-
-    }
-
     @Override
     protected void onPreExecute(){
         p = ProgressDialog.show(mActivity, "Loading", "Retrieving and calculating data..", true);
@@ -137,10 +120,6 @@ public class loginTask extends AsyncTask<Void, Void, Void> {
                 int kills = stats.getTotalChampionKills();
                 int assists = stats.getTotalAssists();
                 int deaths = stats.getTotalDeathsPerSession();
-
-                int aKills = totalPlayed / kills;
-                int aAssists = totalPlayed / assists;
-                int aDeaths = totalPlayed / deaths;
 
                 try {
                     divisionSolo = league.get(sd).get(0).getTier() + " " + league.get(sd).get(0).getEntries().get(0).getDivision() + " " +
