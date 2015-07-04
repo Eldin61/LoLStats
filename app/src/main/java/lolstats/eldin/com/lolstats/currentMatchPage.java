@@ -49,7 +49,7 @@ public class currentMatchPage extends ActionBarActivity {
         Long Summoner10Spell2 = 1L;
 
         double blueKans = 0;
-        double redKans = 0;
+
 
 
 
@@ -59,8 +59,6 @@ public class currentMatchPage extends ActionBarActivity {
         ArrayList<String> Kills = new ArrayList<>();
         ArrayList<String> Deaths = new ArrayList<>();
         ArrayList<String> Assists = new ArrayList<>();
-        List<Long> SummonerSpell1 = new ArrayList<>();
-        List<Long> SummonerSpell2 = new ArrayList<>();
 
 
         Bundle extras = getIntent().getExtras();
@@ -102,9 +100,7 @@ public class currentMatchPage extends ActionBarActivity {
             blueKans = extras.getDouble("blueKans");
 
         }
-//        TextView tvUserName = (TextView) findViewById(R.id.Username);
-//        tvUserName.setText(userName + "'s match:");
-//
+
         TextView tvblueKans = (TextView) findViewById(R.id.blueKans);
         tvblueKans.setText("Blue chance: " + blueKans + " %");
 

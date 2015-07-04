@@ -46,7 +46,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
     ArrayList<Long> SummonerSpell1 = new ArrayList<>();
     ArrayList<Long> SummonerSpell2 = new ArrayList<>();
 
-    ArrayList<String> SummonerGames = new ArrayList<>();
     ArrayList<String> SummonerKills = new ArrayList<>();
     ArrayList<String> SummonerDeaths = new ArrayList<>();
     ArrayList<String> SummonerAssists = new ArrayList<>();
@@ -128,9 +127,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
             for(int x = 0; x < nrOfChamps.length; x++){
                 nrOfChamps [x] = champions.get(x).getName();
-               // Log.d("Champ nr + name: ", x + " " + nrOfChamps[x]);
                 if(x == nrOfChamps.length - 1){
-                   // Log.d("Array to string test: ", Arrays.toString(nrOfChamps));
                     Arrays.sort(nrOfChamps);
                     sortedChamps = nrOfChamps;
 
@@ -138,29 +135,9 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             }
             Log.d("Array sorted ", Arrays.toString(sortedChamps));
 
-
-
-
-
-//            int all = champions.size();
-//            for(int x = 1; x < all; x++) {
-//                if (x == all) {
-//                    break;
-//                } else {
-//                    Log.d("Test 2 ", x + "  " + champions.get(x).getName() + ".");
-//
-//                }
-//            }
-
-
-
-            // hier zoekt die alle participants op van de current game en stopt ze in een lijst
-
                 List<Participant> p = BaseRiotAPI.getCurrentGame(sd).getParticipants();
 
                 List<ChampionStats> r = BaseRiotAPI.getRankedStats(sd).getChampions();
-            // hier word het wat lastiger
-            // deze loop gaat door de list heen van alle participants, elke participant pakt die dus de naam, id en masteries
             for (int i = 0; i < p.size(); i++) {
                 long b = 0;
 
@@ -187,44 +164,10 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 String avgDeaths = kda(games, deaths);
                 String avgAssists = kda(games, assists);
 
-//                int cel = ((games + assists) / deaths)/games;
-//                String kda = cel + "";
                 SummonerKills.add(avgKills);
                 SummonerDeaths.add(avgDeaths);
                 SummonerAssists.add(avgAssists);
-                //lijst met current game masteries
-               // List<Mastery> g = p.get(i).getMasteries();
 
-                // deze loop gaat door de list heen van current game masteries en pakt de mastery id's
-//                for (int z = 0; z < g.size(); z++) {
-//                    long mId = g.get(z).getMasteryId();
-//                    long masteryId;
-//
-//                    // deze loop gaat door de static masteries heen en pakt de id's ervan
-//                    for (int mI = 0; mI < masteryArray.size(); mI++) {
-//                        masteryId = masteryArray.get(mI).getId();
-//
-//                        // als allebei de masteries met elkaar overheenkomen print die dus de naam, rank en mastery tree uit
-//                        if (mId == masteryId) {
-//                            com.robrua.orianna.type.dto.staticdata.Mastery staticMa = masteryArray.get(mI);
-//                            Log.d("Mastery", staticMa.getName() + " Rank: " + g.get(z).getRank() + " Tree: " + staticMa.getMasteryTree());
-//                        }
-//                    }
-//                }
-
-                // in principe het zelfde verhaal als met masteries
-//                List<Rune> r = p.get(i).getRunes();
-//                for (int rune = 0; rune < r.size(); rune++) {
-//                    long rId = r.get(rune).getRuneId();
-//                    long runeId;
-//                    for (int list = 0; list < runess.size(); list++) {
-//                        runeId = runess.get(list).getId();
-//                        if (rId == runeId) {
-//                            com.robrua.orianna.type.dto.staticdata.Rune currRune = runess.get(list);
-//                            Log.d("runename", currRune.getName() + " " + r.get(rune).getCount() + " * " + currRune.getDescription());
-//                        }
-//                    }
-//                }
                 String div = null;
 
                 try {
@@ -245,10 +188,8 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
                 }
 
             }
-            //Log.d("Blue chance: ", kans(blueScore, redScore)+ "");
-            //Log.d("Red chance:", kans(redScore, blueScore) + "");
+
             blueKans = kans(blueScore, redScore);
-            //redKans = kans(redScore, blueScore);
             sFound = true;
         }catch (APIException e){
             sFound = false;
@@ -314,7 +255,6 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
 
 
 
-            //intent.putExtra("currentGame", currentGame);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mActivity.startActivity(intent);
         } else {
@@ -332,42 +272,7 @@ public class currentMatch extends AsyncTask<Void, Void, Void>{
             alert11.show();
         }
     }
-    /**public Summoner setSummoner(String input){
-        return RiotAPI.getSummonerByName(input);
-    }
 
-    public String getChampion(Summoner input){
-        try{
-            for (int i = 0; i < 10; i++){
-                String s = input.getCurrentGame().getParticipants().get(i).getSummonerName();
-                String c = input.getCurrentGame().getParticipants().get(i).getChampion() + "";
-                Participant p = input.getCurrentGame().getParticipants().get(i);
-                String d = p.getSummoner().getLeagueEntries().get(0).getTier() + p.getSummoner().getLeagueEntries().get(0).getParticipantEntry().getDivision();
-                String moeder = s + c + d;
-                if(s.contains(input + "") && i < 5){
-                    Log.d("myblue", moeder);
-                } else if (i <= 5){
-                    Log.d("blue", moeder);
-                }
-                if(s.contains(input + "") && i >= 5){
-                    Log.d("mypurple", moeder);
-                } else if (i > 5) {
-                    Log.d("purple", moeder);
-                }
-            }
-            return "";
-        } catch (Exception e){
-            return "shizzles";
-        }
-    }
-
-    public String getDivision(Summoner input) {
-        try {
-            return input.getLeagueEntries().get(0).getTier() + " " + input.getLeagueEntries().get(0).getParticipantEntry().getDivision() + " - " + input.getLeagueEntries().get(0).getParticipantEntry().getLeaguePoints() + "LP";
-        } catch (Exception e) {
-            return "unranked";
-        }
-    }*/
     public Object getdMap(String div){
         HashMap dMap = new HashMap<String, Integer>();
         dMap.put("BRONZE V", 0);
